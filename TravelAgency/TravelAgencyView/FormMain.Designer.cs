@@ -39,6 +39,8 @@ namespace TravelAgencyView
             this.buttonOrderReady = new System.Windows.Forms.Button();
             this.buttonPayOrder = new System.Windows.Forms.Button();
             this.buttonRef = new System.Windows.Forms.Button();
+            this.agenciesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AgencyReplenishmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTravelAgency.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).BeginInit();
             this.SuspendLayout();
@@ -47,11 +49,11 @@ namespace TravelAgencyView
             // 
             this.menuStripTravelAgency.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStripTravelAgency.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.directoriesToolStripMenuItem});
+            this.directoriesToolStripMenuItem,
+            this.AgencyReplenishmentToolStripMenuItem});
             this.menuStripTravelAgency.Location = new System.Drawing.Point(0, 0);
             this.menuStripTravelAgency.Name = "menuStripTravelAgency";
-            this.menuStripTravelAgency.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStripTravelAgency.Size = new System.Drawing.Size(1260, 28);
+            this.menuStripTravelAgency.Size = new System.Drawing.Size(945, 24);
             this.menuStripTravelAgency.TabIndex = 0;
             this.menuStripTravelAgency.Text = "menuStripTravelAgency";
             // 
@@ -59,22 +61,23 @@ namespace TravelAgencyView
             // 
             this.directoriesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.travelsToolStripMenuItem,
-            this.setsToolStripMenuItem});
+            this.setsToolStripMenuItem,
+            this.agenciesToolStripMenuItem});
             this.directoriesToolStripMenuItem.Name = "directoriesToolStripMenuItem";
-            this.directoriesToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
+            this.directoriesToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.directoriesToolStripMenuItem.Text = "Справочники";
             // 
             // travelsToolStripMenuItem
             // 
             this.travelsToolStripMenuItem.Name = "travelsToolStripMenuItem";
-            this.travelsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.travelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.travelsToolStripMenuItem.Text = "Условия поездки";
             this.travelsToolStripMenuItem.Click += new System.EventHandler(this.TravelsToolStripMenuItem_Click);
             // 
             // setsToolStripMenuItem
             // 
             this.setsToolStripMenuItem.Name = "setsToolStripMenuItem";
-            this.setsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.setsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.setsToolStripMenuItem.Text = "Путевки";
             this.setsToolStripMenuItem.Click += new System.EventHandler(this.SetsToolStripMenuItem_Click);
             // 
@@ -82,19 +85,17 @@ namespace TravelAgencyView
             // 
             this.dataGridViewOrders.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridViewOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewOrders.Location = new System.Drawing.Point(0, 32);
-            this.dataGridViewOrders.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewOrders.Location = new System.Drawing.Point(0, 26);
             this.dataGridViewOrders.Name = "dataGridViewOrders";
             this.dataGridViewOrders.RowHeadersWidth = 51;
-            this.dataGridViewOrders.Size = new System.Drawing.Size(993, 443);
+            this.dataGridViewOrders.Size = new System.Drawing.Size(745, 360);
             this.dataGridViewOrders.TabIndex = 1;
             // 
             // buttonCreateOrder
             // 
-            this.buttonCreateOrder.Location = new System.Drawing.Point(1028, 57);
-            this.buttonCreateOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCreateOrder.Location = new System.Drawing.Point(771, 46);
             this.buttonCreateOrder.Name = "buttonCreateOrder";
-            this.buttonCreateOrder.Size = new System.Drawing.Size(197, 31);
+            this.buttonCreateOrder.Size = new System.Drawing.Size(148, 25);
             this.buttonCreateOrder.TabIndex = 2;
             this.buttonCreateOrder.Text = "Создать заказ";
             this.buttonCreateOrder.UseVisualStyleBackColor = true;
@@ -102,10 +103,9 @@ namespace TravelAgencyView
             // 
             // buttonTakeOrderInWork
             // 
-            this.buttonTakeOrderInWork.Location = new System.Drawing.Point(1028, 111);
-            this.buttonTakeOrderInWork.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonTakeOrderInWork.Location = new System.Drawing.Point(771, 90);
             this.buttonTakeOrderInWork.Name = "buttonTakeOrderInWork";
-            this.buttonTakeOrderInWork.Size = new System.Drawing.Size(197, 31);
+            this.buttonTakeOrderInWork.Size = new System.Drawing.Size(148, 25);
             this.buttonTakeOrderInWork.TabIndex = 3;
             this.buttonTakeOrderInWork.Text = "Отдать на выполнение";
             this.buttonTakeOrderInWork.UseVisualStyleBackColor = true;
@@ -113,10 +113,9 @@ namespace TravelAgencyView
             // 
             // buttonOrderReady
             // 
-            this.buttonOrderReady.Location = new System.Drawing.Point(1028, 167);
-            this.buttonOrderReady.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonOrderReady.Location = new System.Drawing.Point(771, 136);
             this.buttonOrderReady.Name = "buttonOrderReady";
-            this.buttonOrderReady.Size = new System.Drawing.Size(197, 31);
+            this.buttonOrderReady.Size = new System.Drawing.Size(148, 25);
             this.buttonOrderReady.TabIndex = 4;
             this.buttonOrderReady.Text = "Заказ готов";
             this.buttonOrderReady.UseVisualStyleBackColor = true;
@@ -124,10 +123,9 @@ namespace TravelAgencyView
             // 
             // buttonPayOrder
             // 
-            this.buttonPayOrder.Location = new System.Drawing.Point(1028, 224);
-            this.buttonPayOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonPayOrder.Location = new System.Drawing.Point(771, 182);
             this.buttonPayOrder.Name = "buttonPayOrder";
-            this.buttonPayOrder.Size = new System.Drawing.Size(197, 31);
+            this.buttonPayOrder.Size = new System.Drawing.Size(148, 25);
             this.buttonPayOrder.TabIndex = 5;
             this.buttonPayOrder.Text = "Заказ оплачен";
             this.buttonPayOrder.UseVisualStyleBackColor = true;
@@ -135,20 +133,33 @@ namespace TravelAgencyView
             // 
             // buttonRef
             // 
-            this.buttonRef.Location = new System.Drawing.Point(1028, 282);
-            this.buttonRef.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonRef.Location = new System.Drawing.Point(771, 229);
             this.buttonRef.Name = "buttonRef";
-            this.buttonRef.Size = new System.Drawing.Size(197, 31);
+            this.buttonRef.Size = new System.Drawing.Size(148, 25);
             this.buttonRef.TabIndex = 6;
             this.buttonRef.Text = "Обновить список";
             this.buttonRef.UseVisualStyleBackColor = true;
             this.buttonRef.Click += new System.EventHandler(this.ButtonRef_Click);
             // 
+            // agenciesToolStripMenuItem
+            // 
+            this.agenciesToolStripMenuItem.Name = "agenciesToolStripMenuItem";
+            this.agenciesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.agenciesToolStripMenuItem.Text = "Склады";
+            this.agenciesToolStripMenuItem.Click += new System.EventHandler(this.agenciesToolStripMenuItem_Click);
+            // 
+            // AgencyReplenishmentToolStripMenuItem
+            // 
+            this.AgencyReplenishmentToolStripMenuItem.Name = "AgencyReplenishmentToolStripMenuItem";
+            this.AgencyReplenishmentToolStripMenuItem.Size = new System.Drawing.Size(136, 20);
+            this.AgencyReplenishmentToolStripMenuItem.Text = "Пополнение складов";
+            this.AgencyReplenishmentToolStripMenuItem.Click += new System.EventHandler(this.AgencyReplenishmentToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1260, 492);
+            this.ClientSize = new System.Drawing.Size(945, 400);
             this.Controls.Add(this.buttonRef);
             this.Controls.Add(this.buttonPayOrder);
             this.Controls.Add(this.buttonOrderReady);
@@ -157,7 +168,6 @@ namespace TravelAgencyView
             this.Controls.Add(this.dataGridViewOrders);
             this.Controls.Add(this.menuStripTravelAgency);
             this.MainMenuStrip = this.menuStripTravelAgency;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormMain";
             this.Text = "Туристическая фирма";
             this.Load += new System.EventHandler(this.FormMain_Load);
@@ -181,5 +191,7 @@ namespace TravelAgencyView
         private System.Windows.Forms.Button buttonOrderReady;
         private System.Windows.Forms.Button buttonPayOrder;
         private System.Windows.Forms.Button buttonRef;
+        private System.Windows.Forms.ToolStripMenuItem agenciesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AgencyReplenishmentToolStripMenuItem;
     }
 }

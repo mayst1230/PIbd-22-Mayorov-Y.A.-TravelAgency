@@ -60,6 +60,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAgencies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgencies.Designer.cs">
+      <DependentUpon>FormAgencies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAgency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgency.Designer.cs">
+      <DependentUpon>FormAgency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAgencyReplenishment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgencyReplenishment.Designer.cs">
+      <DependentUpon>FormAgencyReplenishment.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCreateOrder.cs">
       <SubType>Form</SubType>
     </Compile>

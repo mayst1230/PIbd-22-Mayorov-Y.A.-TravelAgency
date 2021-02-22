@@ -1,13 +1,6 @@
 ﻿using TravelAgencyBusinnesLogic.BindingModels;
 using TravelAgencyBusinnesLogic.BusinessLogics;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
 
@@ -124,6 +117,18 @@ namespace TravelAgencyView
         private void ButtonRef_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void agenciesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormAgencies>();
+            form.ShowDialog();
+        }
+
+        private void AgencyReplenishmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormAgencyReplenishment>();
+            form.ShowDialog();
         }
     }
 }
