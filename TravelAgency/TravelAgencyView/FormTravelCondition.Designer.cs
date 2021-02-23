@@ -33,7 +33,7 @@ namespace TravelAgencyView
             this.buttonSave = new System.Windows.Forms.Button();
             this.labelName = new System.Windows.Forms.Label();
             this.labelCount = new System.Windows.Forms.Label();
-            this.comboBoxTravel = new System.Windows.Forms.ComboBox();
+            this.comboBoxCondition = new System.Windows.Forms.ComboBox();
             this.textBoxCount = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -66,7 +66,7 @@ namespace TravelAgencyView
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(54, 13);
             this.labelName.TabIndex = 4;
-            this.labelName.Text = "Поездка:";
+            this.labelName.Text = "Условие:";
             // 
             // labelCount
             // 
@@ -77,13 +77,13 @@ namespace TravelAgencyView
             this.labelCount.TabIndex = 5;
             this.labelCount.Text = "Количество:";
             // 
-            // comboBoxTravel
+            // comboBoxCondition
             // 
-            this.comboBoxTravel.FormattingEnabled = true;
-            this.comboBoxTravel.Location = new System.Drawing.Point(138, 22);
-            this.comboBoxTravel.Name = "comboBoxTravel";
-            this.comboBoxTravel.Size = new System.Drawing.Size(217, 21);
-            this.comboBoxTravel.TabIndex = 6;
+            this.comboBoxCondition.FormattingEnabled = true;
+            this.comboBoxCondition.Location = new System.Drawing.Point(138, 22);
+            this.comboBoxCondition.Name = "comboBoxCondition";
+            this.comboBoxCondition.Size = new System.Drawing.Size(217, 21);
+            this.comboBoxCondition.TabIndex = 6;
             // 
             // textBoxCount
             // 
@@ -92,13 +92,13 @@ namespace TravelAgencyView
             this.textBoxCount.Size = new System.Drawing.Size(217, 20);
             this.textBoxCount.TabIndex = 7;
             // 
-            // FormConditionTravel
+            // FormTravelCondition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(375, 120);
             this.Controls.Add(this.textBoxCount);
-            this.Controls.Add(this.comboBoxTravel);
+            this.Controls.Add(this.comboBoxCondition);
             this.Controls.Add(this.labelCount);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.buttonCancel);
@@ -116,7 +116,7 @@ namespace TravelAgencyView
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelCount;
-        private System.Windows.Forms.ComboBox comboBoxTravel;
+        private System.Windows.Forms.ComboBox comboBoxCondition;
         private System.Windows.Forms.TextBox textBoxCount;
     }
 }

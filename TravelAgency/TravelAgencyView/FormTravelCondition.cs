@@ -19,10 +19,10 @@ namespace TravelAgencyView
         public new IUnityContainer Container { get; set; }
         public int Id
         {
-            get { return Convert.ToInt32(comboBoxTravel.SelectedValue); }
-            set { comboBoxTravel.SelectedValue = value; }
+            get { return Convert.ToInt32(comboBoxCondition.SelectedValue); }
+            set { comboBoxCondition.SelectedValue = value; }
         }
-        public string TravelName { get { return comboBoxTravel.Text; } }
+        public string TravelName { get { return comboBoxCondition.Text; } }
         public int Count
         {
             get { return Convert.ToInt32(textBoxCount.Text); }
@@ -38,10 +38,10 @@ namespace TravelAgencyView
             List<ConditionViewModel> list = logic.Read(null);
             if (list != null)
             {
-                comboBoxTravel.DisplayMember = "TravelName";
-                comboBoxTravel.ValueMember = "Id";
-                comboBoxTravel.DataSource = list;
-                comboBoxTravel.SelectedItem = null;
+                comboBoxCondition.DisplayMember = "ConditionName";
+                comboBoxCondition.ValueMember = "Id";
+                comboBoxCondition.DataSource = list;
+                comboBoxCondition.SelectedItem = null;
             }
         }
         private void ButtonSave_Click(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace TravelAgencyView
                 MessageBox.Show("Заполните поле Количество", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (comboBoxTravel.SelectedValue == null)
+            if (comboBoxCondition.SelectedValue == null)
             {
                 MessageBox.Show("Выберите условие поездки", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

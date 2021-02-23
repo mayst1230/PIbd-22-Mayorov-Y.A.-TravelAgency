@@ -34,7 +34,7 @@ namespace TravelAgencyView
             this.labelSet = new System.Windows.Forms.Label();
             this.labelCount = new System.Windows.Forms.Label();
             this.labelSum = new System.Windows.Forms.Label();
-            this.comboBoxSet = new System.Windows.Forms.ComboBox();
+            this.comboBoxTravel = new System.Windows.Forms.ComboBox();
             this.textBoxCount = new System.Windows.Forms.TextBox();
             this.textBoxSum = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -90,12 +90,12 @@ namespace TravelAgencyView
             // 
             // comboBoxSet
             // 
-            this.comboBoxSet.FormattingEnabled = true;
-            this.comboBoxSet.Location = new System.Drawing.Point(102, 6);
-            this.comboBoxSet.Name = "comboBoxSet";
-            this.comboBoxSet.Size = new System.Drawing.Size(235, 21);
-            this.comboBoxSet.TabIndex = 17;
-            this.comboBoxSet.SelectedValueChanged += new System.EventHandler(this.ComboBoxProduct_SelectedIndexChanged);
+            this.comboBoxTravel.FormattingEnabled = true;
+            this.comboBoxTravel.Location = new System.Drawing.Point(102, 6);
+            this.comboBoxTravel.Name = "comboBoxSet";
+            this.comboBoxTravel.Size = new System.Drawing.Size(235, 21);
+            this.comboBoxTravel.TabIndex = 17;
+            this.comboBoxTravel.SelectedValueChanged += new System.EventHandler(this.ComboBoxProduct_SelectedIndexChanged);
             // 
             // textBoxCount
             // 
@@ -119,7 +119,7 @@ namespace TravelAgencyView
             this.ClientSize = new System.Drawing.Size(349, 138);
             this.Controls.Add(this.textBoxSum);
             this.Controls.Add(this.textBoxCount);
-            this.Controls.Add(this.comboBoxSet);
+            this.Controls.Add(this.comboBoxTravel);
             this.Controls.Add(this.labelSum);
             this.Controls.Add(this.labelCount);
             this.Controls.Add(this.labelSet);
@@ -140,7 +140,7 @@ namespace TravelAgencyView
         private System.Windows.Forms.Label labelSet;
         private System.Windows.Forms.Label labelCount;
         private System.Windows.Forms.Label labelSum;
-        private System.Windows.Forms.ComboBox comboBoxSet;
+        private System.Windows.Forms.ComboBox comboBoxTravel;
         private System.Windows.Forms.TextBox textBoxCount;
         private System.Windows.Forms.TextBox textBoxSum;
     }
