@@ -66,7 +66,7 @@ namespace TravelAgencyView
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(54, 13);
             this.labelName.TabIndex = 4;
-            this.labelName.Text = "Поездка:";
+            this.labelName.Text = "Условие:";
             // 
             // labelCount
             // 
