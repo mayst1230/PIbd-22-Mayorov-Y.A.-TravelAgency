@@ -14,7 +14,7 @@ namespace TravelAgencyView
         public new IUnityContainer Container { get; set; }
         private readonly AgencyLogic agencyLogic;
 
-        public FormAgencyReplenishment(AgencyLogic logic_A, TravelLogic logic_T)
+        public FormAgencyReplenishment(AgencyLogic logic_A, ConditionLogic logic_C)
         {
             InitializeComponent();
             this.agencyLogic = logic_A;
@@ -27,13 +27,13 @@ namespace TravelAgencyView
                 comboBoxAgency.SelectedItem = null;
             }
 
-            List<TravelViewModel> list_T = logic_T.Read(null);
+            List<ConditionViewModel> list_T = logic_C.Read(null);
             if (list_T != null)
             {
-                comboBoxTravel.DisplayMember = "TravelName";
-                comboBoxTravel.ValueMember = "Id";
-                comboBoxTravel.DataSource = list_T;
-                comboBoxTravel.SelectedItem = null;
+                comboBoxCondition.DisplayMember = "ConditionName";
+                comboBoxCondition.ValueMember = "Id";
+                comboBoxCondition.DataSource = list_T;
+                comboBoxCondition.SelectedItem = null;
             }
         }
 
@@ -45,7 +45,7 @@ namespace TravelAgencyView
                 return;
             }
 
-            if (comboBoxTravel.SelectedValue == null)
+            if (comboBoxCondition.SelectedValue == null)
             {
                 MessageBox.Show("Выберите условие поездки", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -57,10 +57,10 @@ namespace TravelAgencyView
                 return;
             }
 
-            agencyLogic.AddTravels(new AddTravelsToAgencyBindingModel
+            agencyLogic.AddConditions(new AddConditionsToAgencyBindingModel
             {
                 AgencyId = Convert.ToInt32(comboBoxAgency.SelectedValue),
-                TravelId = Convert.ToInt32(comboBoxTravel.SelectedValue),
+                ConditionId = Convert.ToInt32(comboBoxCondition.SelectedValue),
                 Count = Convert.ToInt32(textBoxCount.Text)
             });
 

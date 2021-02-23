@@ -9,11 +9,11 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
     public class AgencyLogic
     {
         private readonly IAgencyStorage _agencyStorage;
-        private readonly ITravelStorage _travelStorage;
-        public AgencyLogic(IAgencyStorage agencyStorage, ITravelStorage travelStorage)
+        private readonly IConditionStorage _conditionStorage;
+        public AgencyLogic(IAgencyStorage agencyStorage, IConditionStorage conditionStorage)
         {
             _agencyStorage = agencyStorage;
-            _travelStorage = travelStorage;
+            _conditionStorage = conditionStorage;
         }
 
         public List<AgencyViewModel> Read(AgencyBindingModel model)
@@ -62,7 +62,7 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
             _agencyStorage.Delete(model);
         }
 
-        public void AddTravels(AddTravelsToAgencyBindingModel model)
+        public void AddConditions(AddConditionsToAgencyBindingModel model)
         {
             var agency = _agencyStorage.GetElement(new AgencyBindingModel
             {
@@ -73,23 +73,23 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
                 throw new Exception("Склад не найден");
             }
 
-            var travel = _travelStorage.GetElement(new TravelBindingModel
+            var condition = _conditionStorage.GetElement(new ConditionBindingModel
             {
-                Id = model.TravelId
+                Id = model.ConditionId
             });
-            if (travel == null)
+            if (condition == null)
             {
                 throw new Exception("Условие поездки не найдено");
             }
 
             var agencyTravels = agency.AgencyTravels;
-            if (agencyTravels.ContainsKey(agency.Id))
+            if (agencyTravels.ContainsKey(condition.Id))
             {
-                agencyTravels[agency.Id] = (agencyTravels[agency.Id].Item1, agencyTravels[agency.Id].Item2 + model.Count);
+                agencyTravels[condition.Id] = (agencyTravels[condition.Id].Item1, agencyTravels[condition.Id].Item2 + model.Count);
             }
             else
             {
-                agencyTravels.Add(agency.Id, (travel.TravelName, model.Count));
+                agencyTravels.Add(condition.Id, (condition.ConditionName, model.Count));
             }
             _agencyStorage.Update(new AgencyBindingModel
             {

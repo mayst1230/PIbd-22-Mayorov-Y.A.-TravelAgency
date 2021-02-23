@@ -4,11 +4,11 @@ using System.Text;
 
 namespace TravelAgencyBusinnesLogic.BindingModels
 {
-    public class AddTravelsToAgencyBindingModel
+    public class AddConditionsToAgencyBindingModel
     {
         public int AgencyId { get; set; }
 
-        public int TravelId { get; set; }
+        public int ConditionId { get; set; }
 
         public int Count { get; set; }
     }

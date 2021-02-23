@@ -44,7 +44,7 @@ namespace TravelAgencyView
 
         private void ConditionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormCondition>();
+            var form = Container.Resolve<FormConditions>();
             form.ShowDialog();
         }
 

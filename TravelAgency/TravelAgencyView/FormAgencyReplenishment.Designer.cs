@@ -31,7 +31,7 @@
             this.labelAgency = new System.Windows.Forms.Label();
             this.comboBoxAgency = new System.Windows.Forms.ComboBox();
             this.labelTravel = new System.Windows.Forms.Label();
-            this.comboBoxTravel = new System.Windows.Forms.ComboBox();
+            this.comboBoxCondition = new System.Windows.Forms.ComboBox();
             this.labelCount = new System.Windows.Forms.Label();
             this.textBoxCount = new System.Windows.Forms.TextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
@@ -66,11 +66,11 @@
             // 
             // comboBoxTravel
             // 
-            this.comboBoxTravel.FormattingEnabled = true;
-            this.comboBoxTravel.Location = new System.Drawing.Point(86, 47);
-            this.comboBoxTravel.Name = "comboBoxTravel";
-            this.comboBoxTravel.Size = new System.Drawing.Size(213, 21);
-            this.comboBoxTravel.TabIndex = 3;
+            this.comboBoxCondition.FormattingEnabled = true;
+            this.comboBoxCondition.Location = new System.Drawing.Point(86, 47);
+            this.comboBoxCondition.Name = "comboBoxTravel";
+            this.comboBoxCondition.Size = new System.Drawing.Size(213, 21);
+            this.comboBoxCondition.TabIndex = 3;
             // 
             // labelCount
             // 
@@ -117,7 +117,7 @@
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.textBoxCount);
             this.Controls.Add(this.labelCount);
-            this.Controls.Add(this.comboBoxTravel);
+            this.Controls.Add(this.comboBoxCondition);
             this.Controls.Add(this.labelTravel);
             this.Controls.Add(this.comboBoxAgency);
             this.Controls.Add(this.labelAgency);
@@ -131,7 +131,7 @@
         private System.Windows.Forms.Label labelAgency;
         private System.Windows.Forms.ComboBox comboBoxAgency;
         private System.Windows.Forms.Label labelTravel;
-        private System.Windows.Forms.ComboBox comboBoxTravel;
+        private System.Windows.Forms.ComboBox comboBoxCondition;
         private System.Windows.Forms.Label labelCount;
         private System.Windows.Forms.TextBox textBoxCount;
         private System.Windows.Forms.Button buttonCancel;
