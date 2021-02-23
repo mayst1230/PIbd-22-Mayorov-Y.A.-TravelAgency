@@ -50,7 +50,7 @@ namespace TravelAgencyFileImplement.Implements
         {
             int maxId = source.Orders.Count > 0 ? source.Orders.Max(rec => rec.Id) : 0;
             Order element = new Order { Id = maxId + 1 };
-            source.Orders.Add(element);
+            source.Orders.Add(CreateModel(model, element));
         }
 
         public void Update(OrderBindingModel model)
@@ -83,17 +83,16 @@ namespace TravelAgencyFileImplement.Implements
             order.DateCreate = model.DateCreate;
             order.DateImplement = model.DateImplement;
             return order;
-
         }
 
         private OrderViewModel CreateModel(Order order)
         {
             string travelName = null;
-            foreach (Travel set in source.Travels)
+            foreach (Travel travel in source.Travels)
             {
-                if (set.Id == order.TravelId)
+                if (travel.Id == order.TravelId)
                 {
-                    travelName = set.TravelName;
+                    travelName = travel.TravelName;
                 }
             }
             return new OrderViewModel

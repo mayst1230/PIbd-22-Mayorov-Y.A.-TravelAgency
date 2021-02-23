@@ -14,10 +14,10 @@ namespace TravelAgencyView
         private readonly TravelLogic _logicT;
         private readonly OrderLogic _logicO;
 
-        public FormCreateOrder(TravelLogic logicS, OrderLogic logicO)
+        public FormCreateOrder(TravelLogic logicT, OrderLogic logicO)
         {
             InitializeComponent();
-            _logicT = logicS;
+            _logicT = logicT;
             _logicO = logicO;
         }
 
