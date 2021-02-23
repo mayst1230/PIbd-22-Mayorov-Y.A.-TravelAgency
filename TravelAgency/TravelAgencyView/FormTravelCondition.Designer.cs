@@ -1,7 +1,7 @@
 ﻿
 namespace TravelAgencyView
 {
-    partial class FormSetTravel
+    partial class FormTravelCondition
     {
         /// <summary>
         /// Required designer variable.
@@ -92,7 +92,7 @@ namespace TravelAgencyView
             this.textBoxCount.Size = new System.Drawing.Size(217, 20);
             this.textBoxCount.TabIndex = 7;
             // 
-            // FormSetTravel
+            // FormConditionTravel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -103,7 +103,7 @@ namespace TravelAgencyView
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
-            this.Name = "FormSetTravel";
+            this.Name = "FormTravelCondition";
             this.Text = "Условия поездки";
             this.ResumeLayout(false);
             this.PerformLayout();

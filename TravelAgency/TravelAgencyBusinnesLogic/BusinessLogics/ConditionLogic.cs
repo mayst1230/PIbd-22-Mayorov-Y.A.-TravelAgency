@@ -6,30 +6,30 @@ using System.Collections.Generic;
 
 namespace TravelAgencyBusinnesLogic.BusinessLogics
 {
-    public class SetLogic
+    public class ConditionLogic
     {
-        private readonly ISetStorage _setStorage;
-        public SetLogic(ISetStorage setStorage)
+        private readonly IConditionStorage _conditionStorage;
+        public ConditionLogic(IConditionStorage conditionStorage)
         {
-            _setStorage = setStorage;
+            _conditionStorage = conditionStorage;
         }
-        public List<SetViewModel> Read(SetBindingModel model)
+        public List<ConditionViewModel> Read(ConditionBindingModel model)
         {
             if (model == null)
             {
-                return _setStorage.GetFullList();
+                return _conditionStorage.GetFullList();
             }
             if (model.Id.HasValue)
             {
-                return new List<SetViewModel> { _setStorage.GetElement(model) };
+                return new List<ConditionViewModel> { _conditionStorage.GetElement(model) };
             }
-            return _setStorage.GetFilteredList(model);
+            return _conditionStorage.GetFilteredList(model);
         }
-        public void CreateOrUpdate(SetBindingModel model)
+        public void CreateOrUpdate(ConditionBindingModel model)
         {
-            var element = _setStorage.GetElement(new SetBindingModel
+            var element = _conditionStorage.GetElement(new ConditionBindingModel
             {
-                SetName = model.SetName
+                ConditionName = model.ConditionName
             });
             if (element != null && element.Id != model.Id)
             {
@@ -37,16 +37,16 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
             }
             if (model.Id.HasValue)
             {
-                _setStorage.Update(model);
+                _conditionStorage.Update(model);
             }
             else
             {
-                _setStorage.Insert(model);
+                _conditionStorage.Insert(model);
             }
         }
-        public void Delete(SetBindingModel model)
+        public void Delete(ConditionBindingModel model)
         {
-            var element = _setStorage.GetElement(new SetBindingModel
+            var element = _conditionStorage.GetElement(new ConditionBindingModel
             {
                 Id = model.Id
             });
@@ -54,7 +54,7 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
             {
                 throw new Exception("Условие поездки не найдено");
             }
-            _setStorage.Delete(model);
+            _conditionStorage.Delete(model);
         }
     }
 }

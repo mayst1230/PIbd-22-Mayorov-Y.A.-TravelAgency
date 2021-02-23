@@ -17,9 +17,9 @@ namespace TravelAgencyListImplement.Implements
         public List<OrderViewModel> GetFullList()
         {
             List<OrderViewModel> result = new List<OrderViewModel>();
-            foreach (var component in source.Orders)
+            foreach (var condition in source.Orders)
             {
-                result.Add(CreateModel(component));
+                result.Add(CreateModel(condition));
             }
             return result;
         }
@@ -31,11 +31,11 @@ namespace TravelAgencyListImplement.Implements
                 return null;
             }
             List<OrderViewModel> result = new List<OrderViewModel>();
-            foreach (var component in source.Orders)
+            foreach (var condition in source.Orders)
             {
-                if (component.SetId.Equals(model.SetId))
+                if (condition.TravelId.Equals(model.TravelId))
                 {
-                    result.Add(CreateModel(component));
+                    result.Add(CreateModel(condition));
                 }
             }
             return result;
@@ -46,42 +46,42 @@ namespace TravelAgencyListImplement.Implements
             {
                 return null;
             }
-            foreach (var component in source.Orders)
+            foreach (var condition in source.Orders)
             {
-                if (component.Id == model.Id)
+                if (condition.Id == model.Id)
                 {
-                    return CreateModel(component);
+                    return CreateModel(condition);
                 }
             }
             return null;
         }
         public void Insert(OrderBindingModel model)
         {
-            Order tempComponent = new Order { Id = 1 };
-            foreach (var component in source.Orders)
+            Order tempCondition = new Order { Id = 1 };
+            foreach (var condition in source.Orders)
             {
-                if (component.Id >= tempComponent.Id)
+                if (condition.Id >= tempCondition.Id)
                 {
-                    tempComponent.Id = component.Id + 1;
+                    tempCondition.Id = condition.Id + 1;
                 }
             }
-            source.Orders.Add(CreateModel(model, tempComponent));
+            source.Orders.Add(CreateModel(model, tempCondition));
         }
         public void Update(OrderBindingModel model)
         {
-            Order tempComponent = null;
-            foreach (var component in source.Orders)
+            Order tempCondition = null;
+            foreach (var condition in source.Orders)
             {
-                if (component.Id == model.Id)
+                if (condition.Id == model.Id)
                 {
-                    tempComponent = component;
+                    tempCondition = condition;
                 }
             }
-            if (tempComponent == null)
+            if (tempCondition == null)
             {
                 throw new Exception("Элемент не найден");
             }
-            CreateModel(model, tempComponent);
+            CreateModel(model, tempCondition);
         }
         public void Delete(OrderBindingModel model)
         {
@@ -97,7 +97,7 @@ namespace TravelAgencyListImplement.Implements
         }
         private Order CreateModel(OrderBindingModel model, Order order)
         {
-            order.SetId = model.SetId;
+            order.TravelId = model.TravelId;
             order.Count = model.Count;
             order.Sum = model.Sum;
             order.Status = model.Status;
@@ -107,19 +107,19 @@ namespace TravelAgencyListImplement.Implements
         }
         private OrderViewModel CreateModel(Order order)
         {
-            string setName = null;
-            foreach (var set in source.Sets)
+            string travelName = null;
+            foreach (var travel in source.Travels)
             {
-                if (set.Id == order.SetId)
+                if (travel.Id == order.TravelId)
                 {
-                    setName = set.SetName;
+                    travelName = travel.TravelName;
                 }
             }
             return new OrderViewModel
             {
                 Id = order.Id,
-                SetId = order.SetId,
-                SetName = setName,
+                TravelId = order.TravelId,
+                TravelName = travelName,
                 Count = order.Count,
                 Sum = order.Sum,
                 DateCreate = order.DateCreate,

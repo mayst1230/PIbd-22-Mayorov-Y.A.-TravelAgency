@@ -7,10 +7,10 @@ namespace TravelAgencyBusinnesLogic.ViewModels
     public class OrderViewModel
     {
         public int Id { get; set; }
-        public int SetId { get; set; }
+        public int TravelId { get; set; }
 
         [DisplayName("Название путевки")]
-        public string SetName { get; set; }
+        public string TravelName { get; set; }
 
         [DisplayName("Количество")]
         public int Count { get; set; }

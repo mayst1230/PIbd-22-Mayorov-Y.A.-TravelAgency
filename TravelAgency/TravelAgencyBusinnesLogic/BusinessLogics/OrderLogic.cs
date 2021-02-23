@@ -30,7 +30,7 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
         {
             _orderStorage.Insert(new OrderBindingModel
             {
-                SetId = model.SetId,
+                TravelId = model.TravelId,
                 Count = model.Count,
                 Sum = model.Sum,
                 DateCreate = DateTime.Now,
@@ -54,7 +54,7 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
             _orderStorage.Update(new OrderBindingModel
             {
                 Id = order.Id,
-                SetId = order.SetId,
+                TravelId = order.TravelId,
                 Count = order.Count,
                 Sum = order.Sum,
                 DateCreate = order.DateCreate,
@@ -79,7 +79,7 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
             _orderStorage.Update(new OrderBindingModel
             {
                 Id = order.Id,
-                SetId = order.SetId,
+                TravelId = order.TravelId,
                 Count = order.Count,
                 Sum = order.Sum,
                 DateCreate = order.DateCreate,
@@ -104,7 +104,7 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
             _orderStorage.Update(new OrderBindingModel
             {
                 Id = order.Id,
-                SetId = order.SetId,
+                TravelId = order.TravelId,
                 Count = order.Count,
                 Sum = order.Sum,
                 DateCreate = order.DateCreate,

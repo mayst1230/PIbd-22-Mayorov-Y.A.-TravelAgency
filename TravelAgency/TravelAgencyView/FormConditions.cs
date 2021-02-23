@@ -1,30 +1,23 @@
 ﻿using TravelAgencyBusinnesLogic.BindingModels;
 using TravelAgencyBusinnesLogic.BusinessLogics;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
 
 namespace TravelAgencyView
 {
-    public partial class FormSets : Form
+    public partial class FormConditions : Form
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly SetLogic logic;
+        private readonly ConditionLogic logic;
 
-        public FormSets(SetLogic logic)
+        public FormConditions(ConditionLogic logic)
         {
             InitializeComponent();
             this.logic = logic;
         }
-        private void FormSets_Load(object sender, EventArgs e)
+        private void FormConditions_Load(object sender, EventArgs e)
         {
             LoadData();
         }
@@ -35,10 +28,9 @@ namespace TravelAgencyView
                 var list = logic.Read(null);
                 if (list != null)
                 {
-                    dataGridViewSets.DataSource = list;
-                    dataGridViewSets.Columns[0].Visible = false;
-                    dataGridViewSets.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    dataGridViewSets.Columns[3].Visible = false;
+                    dataGridViewConditions.DataSource = list;
+                    dataGridViewConditions.Columns[0].Visible = false;
+                    dataGridViewConditions.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
             catch (Exception ex)
@@ -49,7 +41,7 @@ namespace TravelAgencyView
 
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormSet>();
+            var form = Container.Resolve<FormCondition>();
             if (form.ShowDialog() == DialogResult.OK)
             {
                 LoadData();
@@ -58,10 +50,10 @@ namespace TravelAgencyView
 
         private void ButtonUpd_Click(object sender, EventArgs e)
         {
-            if (dataGridViewSets.SelectedRows.Count == 1)
+            if (dataGridViewConditions.SelectedRows.Count == 1)
             {
-                var form = Container.Resolve<FormSet>();
-                form.Id = Convert.ToInt32(dataGridViewSets.SelectedRows[0].Cells[0].Value);
+                var form = Container.Resolve<FormCondition>();
+                form.Id = Convert.ToInt32(dataGridViewConditions.SelectedRows[0].Cells[0].Value);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     LoadData();
@@ -71,14 +63,15 @@ namespace TravelAgencyView
 
         private void ButtonDel_Click(object sender, EventArgs e)
         {
-            if (dataGridViewSets.SelectedRows.Count == 1)
+            if (dataGridViewConditions.SelectedRows.Count == 1)
             {
                 if (MessageBox.Show("Удалить запись", "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    int id = Convert.ToInt32(dataGridViewSets.SelectedRows[0].Cells[0].Value);
+                    int id =
+                   Convert.ToInt32(dataGridViewConditions.SelectedRows[0].Cells[0].Value);
                     try
                     {
-                        logic.Delete(new SetBindingModel { Id = id });
+                        logic.Delete(new ConditionBindingModel { Id = id });
                     }
                     catch (Exception ex)
                     {

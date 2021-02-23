@@ -83,13 +83,13 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
             }
 
             var agencyTravels = agency.AgencyTravels;
-            if (agencyTravels.ContainsKey(travel.Id))
+            if (agencyTravels.ContainsKey(agency.Id))
             {
-                agencyTravels[travel.Id] = (agencyTravels[travel.Id].Item1, agencyTravels[travel.Id].Item2 + model.Count);
+                agencyTravels[agency.Id] = (agencyTravels[agency.Id].Item1, agencyTravels[agency.Id].Item2 + model.Count);
             }
             else
             {
-                agencyTravels.Add(travel.Id, (travel.TravelName, model.Count));
+                agencyTravels.Add(agency.Id, (travel.TravelName, model.Count));
             }
             _agencyStorage.Update(new AgencyBindingModel
             {

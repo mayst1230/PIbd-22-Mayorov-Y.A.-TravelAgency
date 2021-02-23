@@ -25,13 +25,13 @@ namespace TravelAgencyView
         private static IUnityContainer BuildUnityContainer()
         {
             var currentContainer = new UnityContainer();
-            currentContainer.RegisterType<ITravelStorage, TravelStorage>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IConditionStorage, ConditionStorage>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<IOrderStorage, OrderStorage>(new HierarchicalLifetimeManager());
-            currentContainer.RegisterType<ISetStorage, SetStorage>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<ITravelStorage, TravelStorage>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<IAgencyStorage, AgencyStorage>(new HierarchicalLifetimeManager());
-            currentContainer.RegisterType<TravelLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<ConditionLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<OrderLogic>(new HierarchicalLifetimeManager());
-            currentContainer.RegisterType<SetLogic>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<TravelLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<AgencyLogic>(new HierarchicalLifetimeManager());
             return currentContainer;
         }

@@ -1,10 +1,10 @@
-﻿using TravelAgencyBusinnesLogic.BindingModels;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using TravelAgencyBusinnesLogic.BindingModels;
 using TravelAgencyBusinnesLogic.Interfaces;
 using TravelAgencyBusinnesLogic.ViewModels;
 using TravelAgencyListImplement.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace TravelAgencyListImplement.Implements
 {
@@ -112,7 +112,7 @@ namespace TravelAgencyListImplement.Implements
             agency.AgencyName = model.AgencyName;
             agency.FullNameResponsible = model.FullNameResponsible;
 
-            foreach (var key in agency.AgencyTravels.Keys.ToList())
+            foreach (int key in agency.AgencyTravels.Keys.ToList())
             {
                 if (!model.AgencyTravels.ContainsKey(key))
                 {
@@ -120,7 +120,7 @@ namespace TravelAgencyListImplement.Implements
                 }
             }
 
-            foreach (var travel in model.AgencyTravels)
+            foreach (KeyValuePair<int, (string, int)> travel in model.AgencyTravels)
             {
                 if (agency.AgencyTravels.ContainsKey(travel.Key))
                 {
@@ -137,10 +137,10 @@ namespace TravelAgencyListImplement.Implements
         private AgencyViewModel CreateModel(Agency agency)
         {
             Dictionary<int, (string, int)> agencyTravels = new Dictionary<int, (string, int)>();
-            foreach (var at in agency.AgencyTravels)
+            foreach (KeyValuePair<int, int> at in agency.AgencyTravels)
             {
                 string travelName = string.Empty;
-                foreach (var travel in source.Travels)
+                foreach (Travel travel in source.Travels)
                 {
                     if (at.Key == travel.Id)
                     {

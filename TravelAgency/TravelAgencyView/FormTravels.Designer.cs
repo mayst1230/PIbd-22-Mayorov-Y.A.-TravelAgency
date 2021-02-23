@@ -29,87 +29,87 @@ namespace TravelAgencyView
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridViewTravels = new System.Windows.Forms.DataGridView();
-            this.buttonAdd = new System.Windows.Forms.Button();
-            this.buttonUpd = new System.Windows.Forms.Button();
-            this.buttonDel = new System.Windows.Forms.Button();
             this.buttonRef = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTravels)).BeginInit();
+            this.buttonDel = new System.Windows.Forms.Button();
+            this.buttonUpd = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.dataGridViewTravel = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTravel)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridViewTravels
-            // 
-            this.dataGridViewTravels.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewTravels.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTravels.Location = new System.Drawing.Point(2, 2);
-            this.dataGridViewTravels.Name = "dataGridViewTravels";
-            this.dataGridViewTravels.Size = new System.Drawing.Size(460, 447);
-            this.dataGridViewTravels.TabIndex = 0;
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Location = new System.Drawing.Point(480, 13);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(116, 27);
-            this.buttonAdd.TabIndex = 1;
-            this.buttonAdd.Text = "Добавить";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
-            // 
-            // buttonUpd
-            // 
-            this.buttonUpd.Location = new System.Drawing.Point(480, 58);
-            this.buttonUpd.Name = "buttonUpd";
-            this.buttonUpd.Size = new System.Drawing.Size(116, 27);
-            this.buttonUpd.TabIndex = 2;
-            this.buttonUpd.Text = "Изменить";
-            this.buttonUpd.UseVisualStyleBackColor = true;
-            this.buttonUpd.Click += new System.EventHandler(this.ButtonUpd_Click);
-            // 
-            // buttonDel
-            // 
-            this.buttonDel.Location = new System.Drawing.Point(480, 104);
-            this.buttonDel.Name = "buttonDel";
-            this.buttonDel.Size = new System.Drawing.Size(116, 27);
-            this.buttonDel.TabIndex = 3;
-            this.buttonDel.Text = "Удалить";
-            this.buttonDel.UseVisualStyleBackColor = true;
-            this.buttonDel.Click += new System.EventHandler(this.ButtonDel_Click);
             // 
             // buttonRef
             // 
-            this.buttonRef.Location = new System.Drawing.Point(480, 152);
+            this.buttonRef.Location = new System.Drawing.Point(480, 151);
             this.buttonRef.Name = "buttonRef";
             this.buttonRef.Size = new System.Drawing.Size(116, 27);
-            this.buttonRef.TabIndex = 4;
+            this.buttonRef.TabIndex = 8;
             this.buttonRef.Text = "Обновить";
             this.buttonRef.UseVisualStyleBackColor = true;
             this.buttonRef.Click += new System.EventHandler(this.ButtonRef_Click);
             // 
-            // FormTravels
+            // buttonDel
+            // 
+            this.buttonDel.Location = new System.Drawing.Point(480, 103);
+            this.buttonDel.Name = "buttonDel";
+            this.buttonDel.Size = new System.Drawing.Size(116, 27);
+            this.buttonDel.TabIndex = 7;
+            this.buttonDel.Text = "Удалить";
+            this.buttonDel.UseVisualStyleBackColor = true;
+            this.buttonDel.Click += new System.EventHandler(this.ButtonDel_Click);
+            // 
+            // buttonUpd
+            // 
+            this.buttonUpd.Location = new System.Drawing.Point(480, 57);
+            this.buttonUpd.Name = "buttonUpd";
+            this.buttonUpd.Size = new System.Drawing.Size(116, 27);
+            this.buttonUpd.TabIndex = 6;
+            this.buttonUpd.Text = "Изменить";
+            this.buttonUpd.UseVisualStyleBackColor = true;
+            this.buttonUpd.Click += new System.EventHandler(this.ButtonUpd_Click);
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(480, 12);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(116, 27);
+            this.buttonAdd.TabIndex = 5;
+            this.buttonAdd.Text = "Добавить";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
+            // 
+            // dataGridViewTravel
+            // 
+            this.dataGridViewTravel.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewTravel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTravel.Location = new System.Drawing.Point(1, 1);
+            this.dataGridViewTravel.Name = "dataGridViewTravel";
+            this.dataGridViewTravel.Size = new System.Drawing.Size(460, 447);
+            this.dataGridViewTravel.TabIndex = 9;
+            // 
+            // FormSets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(608, 450);
+            this.Controls.Add(this.dataGridViewTravel);
             this.Controls.Add(this.buttonRef);
             this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.buttonUpd);
             this.Controls.Add(this.buttonAdd);
-            this.Controls.Add(this.dataGridViewTravels);
             this.Name = "FormTravels";
-            this.Text = "Условие поездки";
-            this.Load += new System.EventHandler(this.FormTravels_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTravels)).EndInit();
+            this.Text = "Путевки";
+            this.Load += new System.EventHandler(this.FormSets_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTravel)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewTravels;
-        private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.Button buttonUpd;
-        private System.Windows.Forms.Button buttonDel;
         private System.Windows.Forms.Button buttonRef;
+        private System.Windows.Forms.Button buttonDel;
+        private System.Windows.Forms.Button buttonUpd;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.DataGridView dataGridViewTravel;
     }
 }

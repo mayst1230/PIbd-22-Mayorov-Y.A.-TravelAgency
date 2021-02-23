@@ -13,7 +13,7 @@ using Unity;
 
 namespace TravelAgencyView
 {
-    public partial class FormSetTravel : Form
+    public partial class FormTravelCondition : Form
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
@@ -32,10 +32,10 @@ namespace TravelAgencyView
             }
         }
 
-        public FormSetTravel(TravelLogic logic)
+        public FormTravelCondition(ConditionLogic logic)
         {
             InitializeComponent();
-            List<TravelViewModel> list = logic.Read(null);
+            List<ConditionViewModel> list = logic.Read(null);
             if (list != null)
             {
                 comboBoxTravel.DisplayMember = "TravelName";
