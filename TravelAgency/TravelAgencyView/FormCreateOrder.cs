@@ -2,13 +2,6 @@
 using TravelAgencyBusinnesLogic.BusinessLogics;
 using TravelAgencyBusinnesLogic.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
 
@@ -18,13 +11,13 @@ namespace TravelAgencyView
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly TravelLogic _logicS;
+        private readonly TravelLogic _logicT;
         private readonly OrderLogic _logicO;
 
         public FormCreateOrder(TravelLogic logicS, OrderLogic logicO)
         {
             InitializeComponent();
-            _logicS = logicS;
+            _logicT = logicS;
             _logicO = logicO;
         }
 
@@ -32,13 +25,13 @@ namespace TravelAgencyView
         {
             try
             {
-                var list = _logicS.Read(null);
+                var list = _logicT.Read(null);
                 if (list != null)
                 {
-                    comboBoxSet.DataSource = list;
-                    comboBoxSet.DisplayMember = "SetName";
-                    comboBoxSet.ValueMember = "Id";
-                    comboBoxSet.SelectedItem = null;
+                    comboBoxTravel.DataSource = list;
+                    comboBoxTravel.DisplayMember = "TravelName";
+                    comboBoxTravel.ValueMember = "Id";
+                    comboBoxTravel.SelectedItem = null;
                 }
             }
             catch (Exception ex)
@@ -49,13 +42,13 @@ namespace TravelAgencyView
 
         private void CalcSum()
         {
-            if (comboBoxSet.SelectedValue != null &&
+            if (comboBoxTravel.SelectedValue != null &&
            !string.IsNullOrEmpty(textBoxCount.Text))
             {
                 try
                 {
-                    int id = Convert.ToInt32(comboBoxSet.SelectedValue);
-                    TravelViewModel product = _logicS.Read(new TravelBindingModel
+                    int id = Convert.ToInt32(comboBoxTravel.SelectedValue);
+                    TravelViewModel product = _logicT.Read(new TravelBindingModel
                     {
                         Id = id
                     })?[0];
@@ -85,7 +78,7 @@ namespace TravelAgencyView
                 MessageBox.Show("Заполните поле Количество", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (comboBoxSet.SelectedValue == null)
+            if (comboBoxTravel.SelectedValue == null)
             {
                 MessageBox.Show("Выберите путевку", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -94,7 +87,7 @@ namespace TravelAgencyView
             {
                 _logicO.CreateOrder(new CreateOrderBindingModel
                 {
-                    TravelId = Convert.ToInt32(comboBoxSet.SelectedValue),
+                    TravelId = Convert.ToInt32(comboBoxTravel.SelectedValue),
                     Count = Convert.ToInt32(textBoxCount.Text),
                     Sum = Convert.ToDecimal(textBoxSum.Text)
                 });

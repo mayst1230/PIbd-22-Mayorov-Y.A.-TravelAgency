@@ -7,6 +7,6 @@ namespace TravelAgencyBusinnesLogic.BindingModels
         public int? Id { get; set; }
         public string TravelName { get; set; }
         public decimal Price { get; set; }
-        public Dictionary<int, (string, int)> TravelConditions { get; set; }
+        public Dictionary<int, (string, int)> SetTravels { get; set; }
     }
 }

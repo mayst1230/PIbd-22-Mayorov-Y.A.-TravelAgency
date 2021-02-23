@@ -43,7 +43,7 @@ namespace TravelAgencyView
                     {
                         textBoxName.Text = view.TravelName;
                         textBoxPrice.Text = view.Price.ToString();
-                        setTravels = view.TravelConditions;
+                        setTravels = view.SetTravels;
                         LoadData();
                     }
                 }
@@ -153,7 +153,7 @@ namespace TravelAgencyView
                     Id = id,
                     TravelName = textBoxName.Text,
                     Price = Convert.ToDecimal(textBoxPrice.Text),
-                    TravelConditions = setTravels
+                    SetTravels = setTravels
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;

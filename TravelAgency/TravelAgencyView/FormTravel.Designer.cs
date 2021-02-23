@@ -179,7 +179,7 @@ namespace TravelAgencyView
             // 
             this.ColumnName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ColumnName.FillWeight = 70F;
-            this.ColumnName.HeaderText = "Путевка";
+            this.ColumnName.HeaderText = "Условие поездки";
             this.ColumnName.Name = "ColumnName";
             // 
             // ColumnCount
