@@ -82,7 +82,7 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
                 throw new Exception("Условие поездки не найдено");
             }
 
-            var agencyTravels = agency.AgencyTravels;
+            var agencyTravels = agency.AgencyConditions;
             if (agencyTravels.ContainsKey(condition.Id))
             {
                 agencyTravels[condition.Id] = (agencyTravels[condition.Id].Item1, agencyTravels[condition.Id].Item2 + model.Count);

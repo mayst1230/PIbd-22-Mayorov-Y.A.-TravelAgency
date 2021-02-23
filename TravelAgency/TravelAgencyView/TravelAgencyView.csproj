@@ -60,7 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-	<Compile Include="FormAgencies.cs">
+    <Compile Include="FormAgencies.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormAgencies.Designer.cs">
@@ -122,6 +122,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAgency.resx">
+      <DependentUpon>FormAgency.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCreateOrder.resx">
       <DependentUpon>FormCreateOrder.cs</DependentUpon>
     </EmbeddedResource>

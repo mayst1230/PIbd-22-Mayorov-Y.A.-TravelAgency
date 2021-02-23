@@ -32,13 +32,13 @@
             this.labelAgencyName = new System.Windows.Forms.Label();
             this.textBoxAgencyName = new System.Windows.Forms.TextBox();
             this.textBoxFullName = new System.Windows.Forms.TextBox();
-            this.dataGridViewTravels = new System.Windows.Forms.DataGridView();
+            this.dataGridViewConditions = new System.Windows.Forms.DataGridView();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTravelName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnConditionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTravels)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConditions)).BeginInit();
             this.SuspendLayout();
             // 
             // labelFullName
@@ -73,18 +73,18 @@
             this.textBoxFullName.Size = new System.Drawing.Size(204, 20);
             this.textBoxFullName.TabIndex = 3;
             // 
-            // dataGridViewDishes
+            // dataGridViewConditions
             // 
-            this.dataGridViewTravels.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewTravels.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTravels.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewConditions.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewConditions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewConditions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
-            this.ColumnTravelName,
+            this.ColumnConditionName,
             this.ColumnCount});
-            this.dataGridViewTravels.Location = new System.Drawing.Point(15, 80);
-            this.dataGridViewTravels.Name = "dataGridViewDishes";
-            this.dataGridViewTravels.Size = new System.Drawing.Size(342, 190);
-            this.dataGridViewTravels.TabIndex = 4;
+            this.dataGridViewConditions.Location = new System.Drawing.Point(15, 80);
+            this.dataGridViewConditions.Name = "dataGridViewConditions";
+            this.dataGridViewConditions.Size = new System.Drawing.Size(342, 190);
+            this.dataGridViewConditions.TabIndex = 4;
             // 
             // buttonCancel
             // 
@@ -114,12 +114,12 @@
             this.ColumnId.Name = "ColumnId";
             this.ColumnId.Visible = false;
             // 
-            // ColumnTravelName
+            // ColumnConditionName
             // 
-            this.ColumnTravelName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnTravelName.FillWeight = 80F;
-            this.ColumnTravelName.HeaderText = "Название условия";
-            this.ColumnTravelName.Name = "ColumnTravelName";
+            this.ColumnConditionName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnConditionName.FillWeight = 80F;
+            this.ColumnConditionName.HeaderText = "Название условия";
+            this.ColumnConditionName.Name = "ColumnConditionName";
             // 
             // ColumnCount
             // 
@@ -134,7 +134,7 @@
             this.ClientSize = new System.Drawing.Size(374, 321);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.dataGridViewTravels);
+            this.Controls.Add(this.dataGridViewConditions);
             this.Controls.Add(this.textBoxFullName);
             this.Controls.Add(this.textBoxAgencyName);
             this.Controls.Add(this.labelAgencyName);
@@ -142,9 +142,10 @@
             this.Name = "FormAgency";
             this.Text = "Склад";
             this.Load += new System.EventHandler(this.FormAgency_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTravels)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewConditions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -153,11 +154,11 @@
         private System.Windows.Forms.Label labelAgencyName;
         private System.Windows.Forms.TextBox textBoxAgencyName;
         private System.Windows.Forms.TextBox textBoxFullName;
-        private System.Windows.Forms.DataGridView dataGridViewTravels;
+        private System.Windows.Forms.DataGridView dataGridViewConditions;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTravelName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnConditionName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCount;
     }
 }

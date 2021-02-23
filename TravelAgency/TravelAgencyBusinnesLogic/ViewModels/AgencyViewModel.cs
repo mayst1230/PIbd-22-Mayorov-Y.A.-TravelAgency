@@ -17,6 +17,6 @@ namespace TravelAgencyBusinnesLogic.ViewModels
         [DisplayName("Дата создания")]
         public DateTime CreationDate { get; set; }
 
-        public Dictionary<int, (string, int)> AgencyTravels { get; set; }
+        public Dictionary<int, (string, int)> AgencyConditions { get; set; }
     }
 }

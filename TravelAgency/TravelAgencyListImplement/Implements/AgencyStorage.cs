@@ -139,16 +139,16 @@ namespace TravelAgencyListImplement.Implements
             Dictionary<int, (string, int)> agencyTravels = new Dictionary<int, (string, int)>();
             foreach (KeyValuePair<int, int> at in agency.AgencyTravels)
             {
-                string travelName = string.Empty;
-                foreach (Travel travel in source.Travels)
+                string conditionName = string.Empty;
+                foreach (Condition condition in source.Conditions)
                 {
-                    if (at.Key == travel.Id)
+                    if (at.Key == condition.Id)
                     {
-                        travelName = travel.TravelName;
+                        conditionName = condition.ConditionName;
                         break;
                     }
                 }
-                agencyTravels.Add(at.Key, (travelName, at.Value));
+                agencyTravels.Add(at.Key, (conditionName, at.Value));
             }
 
             return new AgencyViewModel
@@ -157,7 +157,7 @@ namespace TravelAgencyListImplement.Implements
                 AgencyName = agency.AgencyName,
                 FullNameResponsible = agency.FullNameResponsible,
                 CreationDate = agency.CreationDate,
-                AgencyTravels = agencyTravels
+                AgencyConditions = agencyTravels
             };
         }
     }

@@ -27,12 +27,12 @@ namespace TravelAgencyView
                 comboBoxAgency.SelectedItem = null;
             }
 
-            List<ConditionViewModel> list_T = logic_C.Read(null);
-            if (list_T != null)
+            List<ConditionViewModel> list_C = logic_C.Read(null);
+            if (list_C != null)
             {
                 comboBoxCondition.DisplayMember = "ConditionName";
                 comboBoxCondition.ValueMember = "Id";
-                comboBoxCondition.DataSource = list_T;
+                comboBoxCondition.DataSource = list_C;
                 comboBoxCondition.SelectedItem = null;
             }
         }

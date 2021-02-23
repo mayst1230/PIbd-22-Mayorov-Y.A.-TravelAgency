@@ -16,7 +16,7 @@ namespace TravelAgencyView
         public int Id { set { id = value; } }
         private int? id;
         private readonly AgencyLogic logic;
-        private Dictionary<int, (string, int)> agencyTravels;
+        private Dictionary<int, (string, int)> agencyConditions;
 
         public FormAgency(AgencyLogic service)
         {
@@ -38,7 +38,7 @@ namespace TravelAgencyView
                     {
                         textBoxAgencyName.Text = view.AgencyName;
                         textBoxFullName.Text = view.FullNameResponsible;
-                        agencyTravels = view.AgencyTravels;
+                        agencyConditions = view.AgencyConditions;
                         LoadData();
                     }
                 }
@@ -49,7 +49,7 @@ namespace TravelAgencyView
             }
             else
             {
-                agencyTravels = new Dictionary<int, (string, int)>();
+                agencyConditions = new Dictionary<int, (string, int)>();
             }
         }
 
@@ -57,12 +57,12 @@ namespace TravelAgencyView
         {
             try
             {
-                if (agencyTravels != null)
+                if (agencyConditions != null)
                 {
-                    dataGridViewTravels.Rows.Clear();
-                    foreach (var at in agencyTravels)
+                    dataGridViewConditions.Rows.Clear();
+                    foreach (var at in agencyConditions)
                     {
-                        dataGridViewTravels.Rows.Add(new object[] { at.Key, at.Value.Item1, at.Value.Item2 });
+                        dataGridViewConditions.Rows.Add(new object[] { at.Key, at.Value.Item1, at.Value.Item2 });
                     }
                 }
             }
@@ -93,7 +93,7 @@ namespace TravelAgencyView
                     Id = id,
                     AgencyName = textBoxAgencyName.Text,
                     FullNameResponsible = textBoxFullName.Text,
-                    AgencyTravels = agencyTravels
+                    AgencyTravels = agencyConditions
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
