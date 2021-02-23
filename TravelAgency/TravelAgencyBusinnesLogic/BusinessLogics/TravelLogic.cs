@@ -33,7 +33,7 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
             });
             if (element != null && element.Id != model.Id)
             {
-                throw new Exception("Уже есть условие поездки с таким названием");
+                throw new Exception("Уже есть поездка с таким названием");
             }
             if (model.Id.HasValue)
             {
@@ -52,7 +52,7 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
             });
             if (element == null)
             {
-                throw new Exception("Условие поездки не найдено");
+                throw new Exception("Поездка не найдена");
             }
             _travelStorage.Delete(model);
         }

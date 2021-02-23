@@ -18,10 +18,10 @@ namespace TravelAgencyView
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly SetLogic _logicS;
+        private readonly TravelLogic _logicS;
         private readonly OrderLogic _logicO;
 
-        public FormCreateOrder(SetLogic logicS, OrderLogic logicO)
+        public FormCreateOrder(TravelLogic logicS, OrderLogic logicO)
         {
             InitializeComponent();
             _logicS = logicS;
@@ -55,7 +55,7 @@ namespace TravelAgencyView
                 try
                 {
                     int id = Convert.ToInt32(comboBoxSet.SelectedValue);
-                    SetViewModel product = _logicS.Read(new SetBindingModel
+                    TravelViewModel product = _logicS.Read(new TravelBindingModel
                     {
                         Id = id
                     })?[0];
@@ -94,7 +94,7 @@ namespace TravelAgencyView
             {
                 _logicO.CreateOrder(new CreateOrderBindingModel
                 {
-                    SetId = Convert.ToInt32(comboBoxSet.SelectedValue),
+                    TravelId = Convert.ToInt32(comboBoxSet.SelectedValue),
                     Count = Convert.ToInt32(textBoxCount.Text),
                     Sum = Convert.ToDecimal(textBoxSum.Text)
                 });

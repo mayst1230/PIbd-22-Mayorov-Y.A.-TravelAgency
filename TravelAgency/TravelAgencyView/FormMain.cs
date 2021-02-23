@@ -51,13 +51,13 @@ namespace TravelAgencyView
 
         private void TravelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormTravels>();
+            var form = Container.Resolve<FormConditions>();
             form.ShowDialog();
         }
 
         private void SetsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormSets>();
+            var form = Container.Resolve<FormTravels>();
             form.ShowDialog();
         }
         private void ButtonCreateOrder_Click(object sender, EventArgs e)

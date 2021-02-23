@@ -31,8 +31,8 @@ namespace TravelAgencyView
         {
             this.menuStripTravelAgency = new System.Windows.Forms.MenuStrip();
             this.directoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.conditionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.travelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewOrders = new System.Windows.Forms.DataGridView();
             this.buttonCreateOrder = new System.Windows.Forms.Button();
             this.buttonTakeOrderInWork = new System.Windows.Forms.Button();
@@ -58,25 +58,25 @@ namespace TravelAgencyView
             // directoriesToolStripMenuItem
             // 
             this.directoriesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.travelsToolStripMenuItem,
-            this.setsToolStripMenuItem});
+            this.conditionsToolStripMenuItem,
+            this.travelsToolStripMenuItem});
             this.directoriesToolStripMenuItem.Name = "directoriesToolStripMenuItem";
             this.directoriesToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
             this.directoriesToolStripMenuItem.Text = "Справочники";
             // 
             // travelsToolStripMenuItem
             // 
-            this.travelsToolStripMenuItem.Name = "travelsToolStripMenuItem";
-            this.travelsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.travelsToolStripMenuItem.Text = "Условия поездки";
-            this.travelsToolStripMenuItem.Click += new System.EventHandler(this.TravelsToolStripMenuItem_Click);
+            this.conditionsToolStripMenuItem.Name = "travelsToolStripMenuItem";
+            this.conditionsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.conditionsToolStripMenuItem.Text = "Условия поездки";
+            this.conditionsToolStripMenuItem.Click += new System.EventHandler(this.TravelsToolStripMenuItem_Click);
             // 
             // setsToolStripMenuItem
             // 
-            this.setsToolStripMenuItem.Name = "setsToolStripMenuItem";
-            this.setsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.setsToolStripMenuItem.Text = "Путевки";
-            this.setsToolStripMenuItem.Click += new System.EventHandler(this.SetsToolStripMenuItem_Click);
+            this.travelsToolStripMenuItem.Name = "setsToolStripMenuItem";
+            this.travelsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.travelsToolStripMenuItem.Text = "Путевки";
+            this.travelsToolStripMenuItem.Click += new System.EventHandler(this.SetsToolStripMenuItem_Click);
             // 
             // dataGridViewOrders
             // 
@@ -173,8 +173,8 @@ namespace TravelAgencyView
 
         private System.Windows.Forms.MenuStrip menuStripTravelAgency;
         private System.Windows.Forms.ToolStripMenuItem directoriesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem conditionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem travelsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem setsToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridViewOrders;
         private System.Windows.Forms.Button buttonCreateOrder;
         private System.Windows.Forms.Button buttonTakeOrderInWork;

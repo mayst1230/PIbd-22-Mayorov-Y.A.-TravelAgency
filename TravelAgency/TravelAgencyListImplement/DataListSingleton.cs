@@ -6,15 +6,15 @@ namespace TravelAgencyListImplement
     public class DataListSingleton
     {
         private static DataListSingleton instance;
-        public List<Travel> Travels { get; set; }
+        public List<Condition> Conditions { get; set; }
         public List<Order> Orders { get; set; }
-        public List<Set> Sets { get; set; }
+        public List<Travel> Travels { get; set; }
 
         private DataListSingleton()
         {
-            Travels = new List<Travel>();
+            Conditions = new List<Condition>();
             Orders = new List<Order>();
-            Sets = new List<Set>();
+            Travels = new List<Travel>();
         }
 
         public static DataListSingleton GetInstance()

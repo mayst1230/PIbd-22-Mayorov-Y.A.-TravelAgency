@@ -4,6 +4,7 @@ using TravelAgencyBusinnesLogic.ViewModels;
 using TravelAgencyListImplement.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TravelAgencyListImplement.Implements
 {
@@ -17,13 +18,12 @@ namespace TravelAgencyListImplement.Implements
         public List<TravelViewModel> GetFullList()
         {
             List<TravelViewModel> result = new List<TravelViewModel>();
-            foreach (var component in source.Travels)
+            foreach (var dish in source.Travels)
             {
-                result.Add(CreateModel(component));
+                result.Add(CreateModel(dish));
             }
             return result;
         }
-
         public List<TravelViewModel> GetFilteredList(TravelBindingModel model)
         {
             if (model == null)
@@ -31,11 +31,11 @@ namespace TravelAgencyListImplement.Implements
                 return null;
             }
             List<TravelViewModel> result = new List<TravelViewModel>();
-            foreach (var component in source.Travels)
+            foreach (var set in source.Travels)
             {
-                if (component.TravelName.Contains(model.TravelName))
+                if (set.TravelName.Contains(model.TravelName))
                 {
-                    result.Add(CreateModel(component));
+                    result.Add(CreateModel(set));
                 }
             }
             return result;
@@ -46,49 +46,54 @@ namespace TravelAgencyListImplement.Implements
             {
                 return null;
             }
-            foreach (var component in source.Travels)
+            foreach (var set in source.Travels)
             {
-                if (component.Id == model.Id || component.TravelName ==
-               model.TravelName)
+                if (set.Id == model.Id || set.TravelName ==
+                model.TravelName)
                 {
-                    return CreateModel(component);
+                    return CreateModel(set);
                 }
             }
             return null;
         }
         public void Insert(TravelBindingModel model)
         {
-            Travel tempComponent = new Travel { Id = 1 };
-            foreach (var component in source.Travels)
+            Travel tempTravel = new Travel
             {
-                if (component.Id >= tempComponent.Id)
+                Id = 1,
+                TravelConditions = new
+            Dictionary<int, int>()
+            };
+            foreach (var travel in source.Travels)
+            {
+                if (travel.Id >= tempTravel.Id)
                 {
-                    tempComponent.Id = component.Id + 1;
+                    tempTravel.Id = travel.Id + 1;
                 }
             }
-            source.Travels.Add(CreateModel(model, tempComponent));
+            source.Travels.Add(CreateModel(model, tempTravel));
         }
         public void Update(TravelBindingModel model)
         {
-            Travel tempComponent = null;
-            foreach (var component in source.Travels)
+            Travel tempTravel = null;
+            foreach (var travel in source.Travels)
             {
-                if (component.Id == model.Id)
+                if (travel.Id == model.Id)
                 {
-                    tempComponent = component;
+                    tempTravel = travel;
                 }
             }
-            if (tempComponent == null)
+            if (tempTravel == null)
             {
                 throw new Exception("Элемент не найден");
             }
-            CreateModel(model, tempComponent);
+            CreateModel(model, tempTravel);
         }
         public void Delete(TravelBindingModel model)
         {
             for (int i = 0; i < source.Travels.Count; ++i)
             {
-                if (source.Travels[i].Id == model.Id.Value)
+                if (source.Travels[i].Id == model.Id)
                 {
                     source.Travels.RemoveAt(i);
                     return;
@@ -96,17 +101,57 @@ namespace TravelAgencyListImplement.Implements
             }
             throw new Exception("Элемент не найден");
         }
-        private Travel CreateModel(TravelBindingModel model, Travel component)
+        private Travel CreateModel(TravelBindingModel model, Travel travel)
         {
-            component.TravelName = model.TravelName;
-            return component;
+            travel.TravelName = model.TravelName;
+            travel.Price = model.Price;
+            // удаляем убранные
+            foreach (var key in travel.TravelConditions.Keys.ToList())
+            {
+                if (!model.TravelConditions.ContainsKey(key))
+                {
+                    travel.TravelConditions.Remove(key);
+                }
+            }
+            // обновляем существуюущие и добавляем новые
+            foreach (var condition in model.TravelConditions)
+            {
+                if (travel.TravelConditions.ContainsKey(condition.Key))
+                {
+                    travel.TravelConditions[condition.Key] =
+                    model.TravelConditions[condition.Key].Item2;
+                }
+                else
+                {
+                    travel.TravelConditions.Add(condition.Key,
+                    model.TravelConditions[condition.Key].Item2);
+                }
+            }
+            return travel;
         }
-        private TravelViewModel CreateModel(Travel component)
+        private TravelViewModel CreateModel(Travel travel)
         {
+            // требуется дополнительно получить список компонентов для изделия с названиями и их количество
+            Dictionary<int, (string, int)> setTravels = new Dictionary<int, (string, int)>();
+            foreach (var pc in travel.TravelConditions)
+            {
+                string conditionName = string.Empty;
+                foreach (var condition in source.Conditions)
+                {
+                    if (pc.Key == condition.Id)
+                    {
+                        conditionName = condition.ConditionName;
+                        break;
+                    }
+                }
+                setTravels.Add(pc.Key, (conditionName, pc.Value));
+            }
             return new TravelViewModel
             {
-                Id = component.Id,
-                TravelName = component.TravelName
+                Id = travel.Id,
+                TravelName = travel.TravelName,
+                Price = travel.Price,
+                TravelConditions = setTravels
             };
         }
     }
