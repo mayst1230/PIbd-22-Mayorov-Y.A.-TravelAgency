@@ -108,23 +108,23 @@ namespace TravelAgencyListImplement.Implements
             // удаляем убранные
             foreach (var key in travel.TravelConditions.Keys.ToList())
             {
-                if (!model.SetTravels.ContainsKey(key))
+                if (!model.TravelConditions.ContainsKey(key))
                 {
                     travel.TravelConditions.Remove(key);
                 }
             }
             // обновляем существуюущие и добавляем новые
-            foreach (var condition in model.SetTravels)
+            foreach (var condition in model.TravelConditions)
             {
                 if (travel.TravelConditions.ContainsKey(condition.Key))
                 {
                     travel.TravelConditions[condition.Key] =
-                    model.SetTravels[condition.Key].Item2;
+                    model.TravelConditions[condition.Key].Item2;
                 }
                 else
                 {
                     travel.TravelConditions.Add(condition.Key,
-                    model.SetTravels[condition.Key].Item2);
+                    model.TravelConditions[condition.Key].Item2);
                 }
             }
             return travel;
@@ -151,7 +151,7 @@ namespace TravelAgencyListImplement.Implements
                 Id = travel.Id,
                 TravelName = travel.TravelName,
                 Price = travel.Price,
-                SetTravels = setTravels
+                TravelConditions = setTravels
             };
         }
     }

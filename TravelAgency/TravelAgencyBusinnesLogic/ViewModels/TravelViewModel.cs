@@ -12,6 +12,6 @@ namespace TravelAgencyBusinnesLogic.ViewModels
 
         [DisplayName("Цена")]
         public decimal Price { get; set; }
-        public Dictionary<int, (string, int)> SetTravels { get; set; }
+        public Dictionary<int, (string, int)> TravelConditions { get; set; }
     }
 }
