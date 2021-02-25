@@ -72,14 +72,14 @@ namespace TravelAgencyView
             this.conditionsToolStripMenuItem.Name = "travelsToolStripMenuItem";
             this.conditionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.conditionsToolStripMenuItem.Text = "Условия поездки";
-            this.conditionsToolStripMenuItem.Click += new System.EventHandler(this.ConditionToolStripMenuItem_Click);
+            this.conditionsToolStripMenuItem.Click += new System.EventHandler(this.ConditionsToolStripMenuItem_Click);
             // 
             // setsToolStripMenuItem
             // 
             this.travelsToolStripMenuItem.Name = "setsToolStripMenuItem";
             this.travelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.travelsToolStripMenuItem.Text = "Путевки";
-            this.travelsToolStripMenuItem.Click += new System.EventHandler(this.TravelToolStripMenuItem_Click);
+            this.travelsToolStripMenuItem.Click += new System.EventHandler(this.TravelsToolStripMenuItem_Click);
             // 
             // dataGridViewOrders
             // 

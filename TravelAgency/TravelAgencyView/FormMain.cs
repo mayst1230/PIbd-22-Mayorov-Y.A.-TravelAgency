@@ -125,5 +125,17 @@ namespace TravelAgencyView
         {
             LoadData();
         }
+
+        private void agenciesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormAgencies>();
+            form.ShowDialog();
+        }
+
+        private void AgencyReplenishmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormAgencyReplenishment>();
+            form.ShowDialog();
+        }
     }
 }
