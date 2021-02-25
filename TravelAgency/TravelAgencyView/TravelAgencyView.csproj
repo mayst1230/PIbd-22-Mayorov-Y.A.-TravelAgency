@@ -52,6 +52,11 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.XmlDocument, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.XmlDocument.4.3.0\lib\net46\System.Xml.XmlDocument.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Unity.Abstractions, Version=5.11.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.11.10\lib\net47\Unity.Abstractions.dll</HintPath>
     </Reference>
@@ -153,6 +158,10 @@
     <ProjectReference Include="..\TravelAgencyBusinnesLogic\TravelAgencyBusinnesLogic.csproj">
       <Project>{5df499c9-ed7a-4149-a5dd-51ac50a81a43}</Project>
       <Name>TravelAgencyBusinnesLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TravelAgencyFileImplement\TravelAgencyFileImplement.csproj">
+      <Project>{38a6ae4e-fce9-480d-ae29-ba089061b5bc}</Project>
+      <Name>TravelAgencyFileImplement</Name>
     </ProjectReference>
     <ProjectReference Include="..\TravelAgencyListImplement\TravelAgencyListImplement.csproj">
       <Project>{09c1a7dd-bb47-40a1-9da3-d8442cd33e67}</Project>
