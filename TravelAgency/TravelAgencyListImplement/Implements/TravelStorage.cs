@@ -132,7 +132,7 @@ namespace TravelAgencyListImplement.Implements
         private TravelViewModel CreateModel(Travel travel)
         {
             // требуется дополнительно получить список компонентов для изделия с названиями и их количество
-            Dictionary<int, (string, int)> TravelCinditions = new Dictionary<int, (string, int)>();
+            Dictionary<int, (string, int)> TravelConditions = new Dictionary<int, (string, int)>();
             foreach (var pc in travel.TravelConditions)
             {
                 string conditionName = string.Empty;
@@ -144,14 +144,14 @@ namespace TravelAgencyListImplement.Implements
                         break;
                     }
                 }
-                TravelCinditions.Add(pc.Key, (conditionName, pc.Value));
+                TravelConditions.Add(pc.Key, (conditionName, pc.Value));
             }
             return new TravelViewModel
             {
                 Id = travel.Id,
                 TravelName = travel.TravelName,
                 Price = travel.Price,
-                TravelConditions = TravelCinditions
+                TravelConditions = TravelConditions
             };
         }
     }
