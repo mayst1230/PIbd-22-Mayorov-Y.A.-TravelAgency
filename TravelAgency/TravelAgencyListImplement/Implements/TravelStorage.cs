@@ -31,11 +31,11 @@ namespace TravelAgencyListImplement.Implements
                 return null;
             }
             List<TravelViewModel> result = new List<TravelViewModel>();
-            foreach (var set in source.Travels)
+            foreach (var travel in source.Travels)
             {
-                if (set.TravelName.Contains(model.TravelName))
+                if (travel.TravelName.Contains(model.TravelName))
                 {
-                    result.Add(CreateModel(set));
+                    result.Add(CreateModel(travel));
                 }
             }
             return result;
@@ -46,12 +46,12 @@ namespace TravelAgencyListImplement.Implements
             {
                 return null;
             }
-            foreach (var set in source.Travels)
+            foreach (var travel in source.Travels)
             {
-                if (set.Id == model.Id || set.TravelName ==
+                if (travel.Id == model.Id || travel.TravelName ==
                 model.TravelName)
                 {
-                    return CreateModel(set);
+                    return CreateModel(travel);
                 }
             }
             return null;
