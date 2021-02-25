@@ -18,9 +18,9 @@ namespace TravelAgencyListImplement.Implements
         public List<TravelViewModel> GetFullList()
         {
             List<TravelViewModel> result = new List<TravelViewModel>();
-            foreach (var dish in source.Travels)
+            foreach (var condition in source.Travels)
             {
-                result.Add(CreateModel(dish));
+                result.Add(CreateModel(condition));
             }
             return result;
         }
@@ -132,7 +132,7 @@ namespace TravelAgencyListImplement.Implements
         private TravelViewModel CreateModel(Travel travel)
         {
             // требуется дополнительно получить список компонентов для изделия с названиями и их количество
-            Dictionary<int, (string, int)> setTravels = new Dictionary<int, (string, int)>();
+            Dictionary<int, (string, int)> travelConditions = new Dictionary<int, (string, int)>();
             foreach (var pc in travel.TravelConditions)
             {
                 string conditionName = string.Empty;
@@ -144,14 +144,14 @@ namespace TravelAgencyListImplement.Implements
                         break;
                     }
                 }
-                setTravels.Add(pc.Key, (conditionName, pc.Value));
+                travelConditions.Add(pc.Key, (conditionName, pc.Value));
             }
             return new TravelViewModel
             {
                 Id = travel.Id,
                 TravelName = travel.TravelName,
                 Price = travel.Price,
-                TravelConditions = setTravels
+                TravelConditions = travelConditions
             };
         }
     }
