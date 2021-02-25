@@ -43,7 +43,7 @@ namespace TravelAgencyView
                     {
                         textBoxName.Text = view.TravelName;
                         textBoxPrice.Text = view.Price.ToString();
-                        travelConditions = view.TravelCinditions;
+                        travelConditions = view.TravelConditions;
                         LoadData();
                     }
                 }

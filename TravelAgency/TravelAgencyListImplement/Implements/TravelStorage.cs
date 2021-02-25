@@ -151,7 +151,7 @@ namespace TravelAgencyListImplement.Implements
                 Id = travel.Id,
                 TravelName = travel.TravelName,
                 Price = travel.Price,
-                TravelCinditions = TravelCinditions
+                TravelConditions = TravelCinditions
             };
         }
     }
