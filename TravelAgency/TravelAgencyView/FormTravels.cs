@@ -24,7 +24,7 @@ namespace TravelAgencyView
             InitializeComponent();
             this.logic = logic;
         }
-        private void FormSets_Load(object sender, EventArgs e)
+        private void FormTravels_Load(object sender, EventArgs e)
         {
             LoadData();
         }
