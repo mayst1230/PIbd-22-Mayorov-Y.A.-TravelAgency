@@ -98,7 +98,7 @@ namespace TravelAgencyView
             this.Controls.Add(this.buttonAdd);
             this.Name = "FormTravels";
             this.Text = "Путевки";
-            this.Load += new System.EventHandler(this.FormSets_Load);
+            this.Load += new System.EventHandler(this.FormTravels_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTravel)).EndInit();
             this.ResumeLayout(false);
 
