@@ -12,5 +12,6 @@ namespace TravelAgencyBusinnesLogic.Interfaces
         void Insert(AgencyBindingModel model);
         void Update(AgencyBindingModel model);
         void Delete(AgencyBindingModel model);
+        bool TakeFromTravelAgency(Dictionary<int, (string, int)> conditions, int travelCount);
     }
 }

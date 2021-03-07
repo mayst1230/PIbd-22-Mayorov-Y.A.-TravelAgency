@@ -10,9 +10,13 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
     public class OrderLogic
     {
         private readonly IOrderStorage _orderStorage;
-        public OrderLogic(IOrderStorage orderStorage)
+        private readonly ITravelStorage _travelStorage;
+        private readonly IAgencyStorage _agencyStorage;
+        public OrderLogic(IOrderStorage orderStorage, ITravelStorage travelStorage, IAgencyStorage agencyStorage)
         {
             _orderStorage = orderStorage;
+            _travelStorage = travelStorage;
+            _agencyStorage = agencyStorage;
         }
         public List<OrderViewModel> Read(OrderBindingModel model)
         {

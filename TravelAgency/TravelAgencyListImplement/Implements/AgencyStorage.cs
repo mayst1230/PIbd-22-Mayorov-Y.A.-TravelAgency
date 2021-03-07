@@ -160,5 +160,22 @@ namespace TravelAgencyListImplement.Implements
                 AgencyConditions = agencyTravels
             };
         }
+
+        public void Print()
+        {
+            foreach (Agency agency in source.Agencies)
+            {
+                Console.WriteLine(agency.AgencyName + " " + agency.FullNameResponsible + " " + agency.CreationDate);
+                foreach (KeyValuePair<int, int> keyValue in agency.AgencyTravels)
+                {
+                    string conditionName = source.Conditions.FirstOrDefault(material => material.Id == keyValue.Key).ConditionName;
+                    Console.WriteLine(conditionName + " " + keyValue.Value);
+                }
+            }
+        }
+        public bool TakeFromTravelAgency(Dictionary<int, (string, int)> conditions, int travelCount)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

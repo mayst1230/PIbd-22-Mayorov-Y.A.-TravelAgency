@@ -175,6 +175,10 @@
       <Project>{5df499c9-ed7a-4149-a5dd-51ac50a81a43}</Project>
       <Name>TravelAgencyBusinnesLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TravelAgencyFileImplement\TravelAgencyFileImplement.csproj">
+      <Project>{47eb8c1f-4f61-4b48-b860-6c0248614e3b}</Project>
+      <Name>TravelAgencyFileImplement</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TravelAgencyListImplement\TravelAgencyListImplement.csproj">
       <Project>{09c1a7dd-bb47-40a1-9da3-d8442cd33e67}</Project>
       <Name>TravelAgencyListImplement</Name>
