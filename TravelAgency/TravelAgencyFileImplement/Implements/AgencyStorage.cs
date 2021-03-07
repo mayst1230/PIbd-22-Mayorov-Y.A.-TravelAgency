@@ -139,7 +139,7 @@ namespace TravelAgencyFileImplement.Implements
         {
             foreach (var condition in conditions)
             {
-                int count = source.Agencies.Where(material => material.AgencyTravels.ContainsKey(condition.Key)).Sum(material => material.AgencyTravels[condition.Key]);
+                int count = source.Agencies.Where(travel => travel.AgencyTravels.ContainsKey(condition.Key)).Sum(travel => travel.AgencyTravels[condition.Key]);
 
                 if (count < condition.Value.Item2 * travelCount)
                 {
@@ -150,7 +150,7 @@ namespace TravelAgencyFileImplement.Implements
             foreach (var condition in conditions)
             {
                 int count = condition.Value.Item2 * travelCount;
-                IEnumerable<Agency> agency = source.Agencies.Where(material => material.AgencyTravels.ContainsKey(condition.Key));
+                IEnumerable<Agency> agency = source.Agencies.Where(travel => travel.AgencyTravels.ContainsKey(condition.Key));
 
                 foreach (Agency agencies in agency)
                 {
