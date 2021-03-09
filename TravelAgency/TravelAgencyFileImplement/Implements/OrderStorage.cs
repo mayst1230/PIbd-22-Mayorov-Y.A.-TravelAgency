@@ -99,7 +99,7 @@ namespace TravelAgencyFileImplement.Implements
             {
                 Id = order.Id,
                 TravelId = order.TravelId,
-                TravelName = travelName,
+                TravelName = source.Travels.FirstOrDefault(x => x.Id == order.TravelId)?.TravelName,
                 Count = order.Count,
                 Sum = order.Sum,
                 DateCreate = order.DateCreate,
