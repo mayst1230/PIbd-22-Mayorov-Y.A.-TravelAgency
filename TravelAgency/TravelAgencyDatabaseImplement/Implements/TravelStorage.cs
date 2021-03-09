@@ -26,7 +26,7 @@ namespace TravelAgencyDatabaseImplement.Implements
                    TravelName = rec.TravelName,
                    Price = rec.Price,
                    TravelConditions = rec.TravelConditions
-                .ToDictionary(recPC => recPC.ConditionId, recPC =>
+                .ToDictionary(recTC => recTC.ConditionId, recPC =>
                (recPC.Condition?.ConditionName, recPC.Count))
                })
                .ToList();
@@ -52,7 +52,7 @@ namespace TravelAgencyDatabaseImplement.Implements
                    TravelName = rec.TravelName,
                    Price = rec.Price,
                    TravelConditions = rec.TravelConditions
-                .ToDictionary(recPC => recPC.ConditionId, recPC =>
+                .ToDictionary(recTC => recTC.ConditionId, recPC =>
                (recPC.Condition?.ConditionName, recPC.Count))
                })
                .ToList();
@@ -79,8 +79,8 @@ namespace TravelAgencyDatabaseImplement.Implements
                     TravelName = travel.TravelName,
                     Price = travel.Price,
                     TravelConditions = travel.TravelConditions
-                .ToDictionary(recPC => recPC.ConditionId, recPC =>
-               (recPC.Condition?.ConditionName, recPC.Count))
+                .ToDictionary(recPC => recPC.ConditionId, recTC =>
+               (recTC.Condition?.ConditionName, recTC.Count))
                 } :
                null;
             }
@@ -94,7 +94,14 @@ namespace TravelAgencyDatabaseImplement.Implements
                 {
                     try
                     {
-                        context.Travels.Add(CreateModel(model, new Travel(), context));
+                        Travel t = new Travel
+                        {
+                            TravelName = model.TravelName,
+                            Price = model.Price
+                        };
+                        context.Travels.Add(t);
+                        context.SaveChanges();
+                        CreateModel(model, t, context);
                         context.SaveChanges();
                         transaction.Commit();
                     }
@@ -154,8 +161,6 @@ namespace TravelAgencyDatabaseImplement.Implements
 
         private Travel CreateModel(TravelBindingModel model, Travel travel, TravelAgencyDatabase context)
         {
-            travel.TravelName = model.TravelName;
-            travel.Price = model.Price;
             if (model.Id.HasValue)
             {
                 var travelConditions = context.TravelConditions.Where(rec =>
@@ -174,13 +179,13 @@ namespace TravelAgencyDatabaseImplement.Implements
                 context.SaveChanges();
             }
             // добавили новые
-            foreach (var pc in model.TravelConditions)
+            foreach (var tc in model.TravelConditions)
             {
                 context.TravelConditions.Add(new TravelCondition
                 {
                     TravelId = travel.Id,
-                    ConditionId = pc.Key,
-                    Count = pc.Value.Item2
+                    ConditionId = tc.Key,
+                    Count = tc.Value.Item2
                 });
                 context.SaveChanges();
             }

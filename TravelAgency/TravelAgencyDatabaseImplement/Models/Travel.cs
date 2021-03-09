@@ -14,7 +14,10 @@ namespace TravelAgencyDatabaseImplement.Models
         [Required]
         public decimal Price { get; set; }
 
+        [ForeignKey("TravelId")]
         public virtual List<TravelCondition> TravelConditions { get; set; }
+
+        [ForeignKey("TravelId")]
         public virtual List<Order> Orders { get; set; }
 
     }
