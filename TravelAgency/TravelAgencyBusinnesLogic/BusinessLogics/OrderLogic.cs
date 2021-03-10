@@ -55,6 +55,10 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
             {
                 throw new Exception("Заказ не в статусе \"Принят\"");
             }
+            if (!_agencyStorage.TakeFromTravelAgency(_travelStorage.GetElement(new TravelBindingModel { Id = order.TravelId }).TravelConditions, order.Count))
+            {
+                throw new Exception("Недостаточно условий для поездок");
+            }
             _orderStorage.Update(new OrderBindingModel
             {
                 Id = order.Id,
