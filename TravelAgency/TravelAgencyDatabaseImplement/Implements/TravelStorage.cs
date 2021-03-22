@@ -16,11 +16,7 @@ namespace TravelAgencyDatabaseImplement.Implements
         {
             using (var context = new TravelAgencyDatabase())
             {
-                return context.Travels
-               .Include(rec => rec.TravelConditions)
-               .ThenInclude(rec => rec.Condition)
-               .ToList()
-               .Select(rec => new TravelViewModel
+                return context.Travels.Include(rec => rec.TravelConditions).ThenInclude(rec => rec.Condition).ToList().Select(rec => new TravelViewModel
                {
                    Id = rec.Id,
                    TravelName = rec.TravelName,
@@ -41,12 +37,8 @@ namespace TravelAgencyDatabaseImplement.Implements
             }
             using (var context = new TravelAgencyDatabase())
             {
-                return context.Travels
-                .Include(rec => rec.TravelConditions)
-               .ThenInclude(rec => rec.Condition)
-               .Where(rec => rec.TravelName.Contains(model.TravelName))
-               .ToList()
-               .Select(rec => new TravelViewModel
+                return context.Travels.Include(rec => rec.TravelConditions).ThenInclude(rec => rec.Condition).
+                Where(rec => rec.TravelName.Contains(model.TravelName)).ToList().Select(rec => new TravelViewModel
                {
                    Id = rec.Id,
                    TravelName = rec.TravelName,
@@ -67,11 +59,8 @@ namespace TravelAgencyDatabaseImplement.Implements
             }
             using (var context = new TravelAgencyDatabase())
             {
-                var travel = context.Travels
-                .Include(rec => rec.TravelConditions)
-               .ThenInclude(rec => rec.Condition)
-               .FirstOrDefault(rec => rec.TravelName == model.TravelName || rec.Id
-               == model.Id);
+                var travel = context.Travels.Include(rec => rec.TravelConditions).ThenInclude(rec => rec.Condition)
+                .FirstOrDefault(rec => rec.TravelName == model.TravelName || rec.Id == model.Id);
                 return travel != null ?
                 new TravelViewModel
                 {

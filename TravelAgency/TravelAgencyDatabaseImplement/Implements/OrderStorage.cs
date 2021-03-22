@@ -2,6 +2,7 @@
 using TravelAgencyBusinnesLogic.Interfaces;
 using TravelAgencyBusinnesLogic.ViewModels;
 using TravelAgencyDatabaseImplement.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace TravelAgencyDatabaseImplement.Implements
         {
             using (TravelAgencyDatabase context = new TravelAgencyDatabase())
             {
-                return context.Orders
+                return context.Orders.Include(rec => rec.Travel)
                 .Select(rec => new OrderViewModel
                 {
                     Id = rec.Id,
@@ -37,7 +38,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             }
             using (TravelAgencyDatabase context = new TravelAgencyDatabase())
             {
-                return context.Orders
+                return context.Orders.Include(rec => rec.Travel)
                 .Where(rec => rec.TravelId == model.TravelId)
                 .Select(rec => new OrderViewModel
                 {
@@ -61,7 +62,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             }
             using (TravelAgencyDatabase context = new TravelAgencyDatabase())
             {
-                Order order = context.Orders
+                Order order = context.Orders.Include(rec => rec.Travel)
                 .FirstOrDefault(rec => rec.Id == model.Id);
                 return order != null ?
                 new OrderViewModel
