@@ -26,16 +26,16 @@ namespace TravelAgencyListImplement.Implements
 
         public List<OrderViewModel> GetFilteredList(OrderBindingModel model)
         {
-            if (model == null)
+            if (model == null || model.DateFrom == null || model.DateTo == null)
             {
                 return null;
             }
             List<OrderViewModel> result = new List<OrderViewModel>();
-            foreach (var condition in source.Orders)
+            foreach (var order in source.Orders)
             {
-                if (condition.TravelId.Equals(model.TravelId))
+                if ((order.DateCreate >= model.DateFrom && order.DateCreate <= model.DateTo))
                 {
-                    result.Add(CreateModel(condition));
+                    result.Add(CreateModel(order));
                 }
             }
             return result;

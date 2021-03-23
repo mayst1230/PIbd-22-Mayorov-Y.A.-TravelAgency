@@ -32,14 +32,14 @@ namespace TravelAgencyDatabaseImplement.Implements
         }
         public List<OrderViewModel> GetFilteredList(OrderBindingModel model)
         {
-            if (model == null)
+            if (model == null || model.DateFrom == null || model.DateTo == null)
             {
                 return null;
             }
             using (TravelAgencyDatabase context = new TravelAgencyDatabase())
             {
                 return context.Orders.Include(rec => rec.Travel)
-                .Where(rec => rec.TravelId == model.TravelId)
+                .Where(rec => rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo)
                 .Select(rec => new OrderViewModel
                 {
                     Id = rec.Id,
