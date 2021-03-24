@@ -99,16 +99,6 @@ SpreadsheetDocument.Create(info.FileName, SpreadsheetDocumentType.Workbook))
                     {
                         Worksheet = worksheetPart.Worksheet,
                         ShareStringPart = shareStringPart,
-                        ColumnName = "C",
-                        RowIndex = rowIndex,
-                        Text = tc.TotalCount.ToString(),
-                        StyleIndex = 0U
-                    });
-                    rowIndex++;
-                    InsertCellInWorksheet(new ExcelCellParameters
-                    {
-                        Worksheet = worksheetPart.Worksheet,
-                        ShareStringPart = shareStringPart,
                         ColumnName = "A",
                         RowIndex = rowIndex,
                         Text = "Итого:",
