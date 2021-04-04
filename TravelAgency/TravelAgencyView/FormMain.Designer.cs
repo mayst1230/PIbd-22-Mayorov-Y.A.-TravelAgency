@@ -43,6 +43,7 @@ namespace TravelAgencyView
             this.buttonOrderReady = new System.Windows.Forms.Button();
             this.buttonPayOrder = new System.Windows.Forms.Button();
             this.buttonRef = new System.Windows.Forms.Button();
+            this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTravelAgency.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +64,8 @@ namespace TravelAgencyView
             // 
             this.directoriesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.conditionsToolStripMenuItem,
-            this.travelsToolStripMenuItem});
+            this.travelsToolStripMenuItem,
+            this.clientsToolStripMenuItem});
             this.directoriesToolStripMenuItem.Name = "directoriesToolStripMenuItem";
             this.directoriesToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.directoriesToolStripMenuItem.Text = "Справочники";
@@ -71,14 +73,14 @@ namespace TravelAgencyView
             // conditionsToolStripMenuItem
             // 
             this.conditionsToolStripMenuItem.Name = "conditionsToolStripMenuItem";
-            this.conditionsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.conditionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.conditionsToolStripMenuItem.Text = "Условия поездки";
             this.conditionsToolStripMenuItem.Click += new System.EventHandler(this.ConditionsToolStripMenuItem_Click);
             // 
             // travelsToolStripMenuItem
             // 
             this.travelsToolStripMenuItem.Name = "travelsToolStripMenuItem";
-            this.travelsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.travelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.travelsToolStripMenuItem.Text = "Путевки";
             this.travelsToolStripMenuItem.Click += new System.EventHandler(this.TravelsToolStripMenuItem_Click);
             // 
@@ -95,7 +97,7 @@ namespace TravelAgencyView
             // ListTravelsToolStripMenuItem
             // 
             this.ListTravelsToolStripMenuItem.Name = "ListTravelsToolStripMenuItem";
-            this.ListTravelsToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.ListTravelsToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
             this.ListTravelsToolStripMenuItem.Text = "Список изделий";
             this.ListTravelsToolStripMenuItem.Click += new System.EventHandler(this.ListTravelsToolStripMenuItem_Click);
             // 
@@ -109,7 +111,7 @@ namespace TravelAgencyView
             // OrdersToolStripMenuItem
             // 
             this.OrdersToolStripMenuItem.Name = "OrdersToolStripMenuItem";
-            this.OrdersToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.OrdersToolStripMenuItem.Size = new System.Drawing.Size(240, 22);
             this.OrdersToolStripMenuItem.Text = "Список заказов";
             this.OrdersToolStripMenuItem.Click += new System.EventHandler(this.OrdersToolStripMenuItem_Click);
             // 
@@ -173,6 +175,13 @@ namespace TravelAgencyView
             this.buttonRef.UseVisualStyleBackColor = true;
             this.buttonRef.Click += new System.EventHandler(this.ButtonRef_Click);
             // 
+            // clientsToolStripMenuItem
+            // 
+            this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
+            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientsToolStripMenuItem.Text = "Клиенты";
+            this.clientsToolStripMenuItem.Click += new System.EventHandler(this.clientsToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,5 +222,6 @@ namespace TravelAgencyView
         private System.Windows.Forms.ToolStripMenuItem ListTravelsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ConditionsTravelsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OrdersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
     }
 }

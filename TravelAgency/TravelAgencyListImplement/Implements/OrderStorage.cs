@@ -33,7 +33,8 @@ namespace TravelAgencyListImplement.Implements
             List<OrderViewModel> result = new List<OrderViewModel>();
             foreach (var order in source.Orders)
             {
-                if ((!model.DateFrom.HasValue && !model.DateTo.HasValue && order.DateCreate.Date == model.DateCreate.Date) ||
+                if (((model.ClientId.HasValue && order.ClientId == model.ClientId) || 
+                !model.DateFrom.HasValue && !model.DateTo.HasValue && order.DateCreate.Date == model.DateCreate.Date) ||
                 (model.DateFrom.HasValue && model.DateTo.HasValue && order.DateCreate.Date >= model.DateFrom.Value.Date
                 && order.DateCreate.Date <= model.DateTo.Value.Date))
                 {
@@ -99,6 +100,7 @@ namespace TravelAgencyListImplement.Implements
         }
         private Order CreateModel(OrderBindingModel model, Order order)
         {
+            order.ClientId = (int)model.ClientId;
             order.TravelId = model.TravelId;
             order.Count = model.Count;
             order.Sum = model.Sum;
@@ -117,9 +119,22 @@ namespace TravelAgencyListImplement.Implements
                     travelName = travel.TravelName;
                 }
             }
+
+            string clientFIO = null;
+
+            foreach (var client in source.Clients)
+            {
+                if (client.Id == order.TravelId)
+                {
+                    clientFIO = client.ClientFIO;
+                }
+            }
+
             return new OrderViewModel
             {
                 Id = order.Id,
+                ClientId = order.ClientId,
+                ClientFIO = clientFIO,
                 TravelId = order.TravelId,
                 TravelName = travelName,
                 Count = order.Count,

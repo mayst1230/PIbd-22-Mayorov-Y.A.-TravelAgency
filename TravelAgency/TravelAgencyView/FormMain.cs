@@ -12,12 +12,14 @@ namespace TravelAgencyView
         public new IUnityContainer Container { get; set; }
         private readonly OrderLogic _orderLogic;
         private readonly ReportLogic _reportLogic;
+        private readonly ClientLogic _clientLogic;
 
-        public FormMain(OrderLogic orderLogic, ReportLogic reportLogic)
+        public FormMain(OrderLogic orderLogic, ReportLogic reportLogic, ClientLogic clientLogic)
         {
             InitializeComponent();
             this._orderLogic = orderLogic;
             this._reportLogic = reportLogic;
+            this._clientLogic = clientLogic;
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -35,6 +37,7 @@ namespace TravelAgencyView
                     dataGridViewOrders.DataSource = list;
                     dataGridViewOrders.Columns[0].Visible = false;
                     dataGridViewOrders.Columns[1].Visible = false;
+                    dataGridViewOrders.Columns[2].Visible = false;
                     dataGridViewOrders.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
@@ -147,6 +150,12 @@ namespace TravelAgencyView
         private void OrdersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormReportOrders>();
+            form.ShowDialog();
+        }
+
+        private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormClients>();
             form.ShowDialog();
         }
     }
