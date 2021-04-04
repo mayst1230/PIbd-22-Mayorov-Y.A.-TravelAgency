@@ -27,7 +27,6 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
         /// <returns></returns>
         public List<ReportTravelConditionViewModel> GetTravelConditions()
         {
-            var conditions = _conditionStorage.GetFullList();
             var travels = _travelStorage.GetFullList();
             var list = new List<ReportTravelConditionViewModel>();
             foreach (var travel in travels)
@@ -38,13 +37,10 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
                     Conditions = new List<Tuple<string, int>>(),
                     TotalCount = 0
                 };
-                foreach (var condition in conditions)
+                foreach (var condition in travel.TravelConditions)
                 {
-                    if (travel.TravelConditions.ContainsKey(condition.Id))
-                    {
-                        record.Conditions.Add(new Tuple<string, int>(condition.ConditionName, travel.TravelConditions[condition.Id].Item2));
-                        record.TotalCount += travel.TravelConditions[condition.Id].Item2;
-                    }
+                    record.Conditions.Add(new Tuple<string, int>(condition.Value.Item1, condition.Value.Item2));
+                    record.TotalCount += condition.Value.Item2;
                 }
                 list.Add(record);
             }
@@ -60,8 +56,7 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
         {
             return _orderStorage.GetFilteredList(new OrderBindingModel
             {
-                DateFrom =
-           model.DateFrom,
+                DateFrom = model.DateFrom,
                 DateTo = model.DateTo
             })
             .Select(x => new ReportOrdersViewModel
@@ -84,7 +79,7 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
             SaveToWord.CreateDoc(new WordInfo
             {
                 FileName = model.FileName,
-                Title = "Список изделий",
+                Title = "Список путевок",
                 Travels = _travelStorage.GetFullList()
             });
         }
@@ -98,7 +93,7 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
             SaveToExcel.CreateDoc(new ExcelInfo
             {
                 FileName = model.FileName,
-                Title = "Список изделий",
+                Title = "Список путевок",
                 TravelConditions = GetTravelConditions()
             });
         }
