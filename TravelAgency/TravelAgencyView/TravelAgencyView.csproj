@@ -259,6 +259,18 @@
     <Compile Include="FormReportOrders.Designer.cs">
       <DependentUpon>FormReportOrders.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReportOrdersForAllDates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportOrdersForAllDates.Designer.cs">
+      <DependentUpon>FormReportOrdersForAllDates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportTravelAgencyConditions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportTravelAgencyConditions.Designer.cs">
+      <DependentUpon>FormReportTravelAgencyConditions.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormReportTravelConditions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -301,6 +313,12 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormReportOrdersForAllDates.resx">
+      <DependentUpon>FormReportOrdersForAllDates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportTravelAgencyConditions.resx">
+      <DependentUpon>FormReportTravelAgencyConditions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTravel.resx">
       <DependentUpon>FormTravel.cs</DependentUpon>
     </EmbeddedResource>
@@ -321,10 +339,12 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Report.rdlc" />
+    <EmbeddedResource Include="ReportOrdersForAllDates.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\TravelAgencyBusinnesLogic.ViewModels.AgencyViewModel.datasource" />
     <None Include="Properties\DataSources\TravelAgencyBusinnesLogic.ViewModels.ConditionViewModel.datasource" />
     <None Include="Properties\DataSources\TravelAgencyBusinnesLogic.ViewModels.OrderViewModel.datasource" />
+    <None Include="Properties\DataSources\TravelAgencyBusinnesLogic.ViewModels.ReportOrdersForAllDatesViewModel.datasource" />
     <None Include="Properties\DataSources\TravelAgencyBusinnesLogic.ViewModels.ReportOrdersViewModel.datasource" />
     <None Include="Properties\DataSources\TravelAgencyBusinnesLogic.ViewModels.ReportTravelConditionViewModel.datasource" />
     <None Include="Properties\DataSources\TravelAgencyBusinnesLogic.ViewModels.TravelViewModel.datasource" />

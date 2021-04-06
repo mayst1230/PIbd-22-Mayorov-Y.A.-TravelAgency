@@ -170,17 +170,30 @@ namespace TravelAgencyView
 
         private void travelAgenciesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            using (var dialog = new SaveFileDialog { Filter = "docx|*.docx" })
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    _reportLogic.SaveTravelAgenciesToWordFile(new ReportBindingModel
+                    {
+                        FileName = dialog.FileName
+                    });
 
+                    MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
 
         private void travelAgenciesConditionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            var form = Container.Resolve<FormReportTravelAgencyConditions>();
+            form.ShowDialog();
         }
 
         private void ordersForAllDatesListToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            var form = Container.Resolve<FormReportOrdersForAllDates>();
+            form.ShowDialog();
         }
     }
 }
