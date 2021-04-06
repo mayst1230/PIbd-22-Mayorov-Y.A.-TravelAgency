@@ -31,11 +31,13 @@ namespace TravelAgencyListImplement.Implements
                 return null;
             }
             List<OrderViewModel> result = new List<OrderViewModel>();
-            foreach (var condition in source.Orders)
+            foreach (var order in source.Orders)
             {
-                if (condition.TravelId.Equals(model.TravelId))
+                if ((!model.DateFrom.HasValue && !model.DateTo.HasValue && order.DateCreate.Date == model.DateCreate.Date) ||
+                (model.DateFrom.HasValue && model.DateTo.HasValue && order.DateCreate.Date >= model.DateFrom.Value.Date
+                && order.DateCreate.Date <= model.DateTo.Value.Date))
                 {
-                    result.Add(CreateModel(condition));
+                    result.Add(CreateModel(order));
                 }
             }
             return result;

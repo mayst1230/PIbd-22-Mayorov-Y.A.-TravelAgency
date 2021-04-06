@@ -43,13 +43,13 @@ namespace TravelAgencyDatabaseImplement.Implements
             }
 
 
-            foreach (KeyValuePair<int, (string, int)> StoreHouseMaterial in model.AgencyTravels)
+            foreach (KeyValuePair<int, (string, int)> TravelAgencyCondition in model.AgencyTravels)
             {
                 context.TravelAgencyConditions.Add(new AgencyCondition
                 {
                     TravelAgencyId = travelagency.Id,
-                    ConditionId = StoreHouseMaterial.Key,
-                    Count = StoreHouseMaterial.Value.Item2
+                    ConditionId = TravelAgencyCondition.Key,
+                    Count = TravelAgencyCondition.Value.Item2
                 });
                 context.SaveChanges();
             }

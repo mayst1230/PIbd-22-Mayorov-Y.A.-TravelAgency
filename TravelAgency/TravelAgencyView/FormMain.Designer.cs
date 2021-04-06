@@ -33,14 +33,21 @@ namespace TravelAgencyView
             this.directoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.conditionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.travelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agenciesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AgencyReplenishmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ListTravelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConditionsTravelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.travelAgenciesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.travelAgenciesConditionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ordersForAllDatesListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewOrders = new System.Windows.Forms.DataGridView();
             this.buttonCreateOrder = new System.Windows.Forms.Button();
             this.buttonTakeOrderInWork = new System.Windows.Forms.Button();
             this.buttonOrderReady = new System.Windows.Forms.Button();
             this.buttonPayOrder = new System.Windows.Forms.Button();
             this.buttonRef = new System.Windows.Forms.Button();
-            this.agenciesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AgencyReplenishmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTravelAgency.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +57,8 @@ namespace TravelAgencyView
             this.menuStripTravelAgency.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStripTravelAgency.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.directoriesToolStripMenuItem,
-            this.AgencyReplenishmentToolStripMenuItem});
+            this.AgencyReplenishmentToolStripMenuItem,
+            this.отчетыToolStripMenuItem});
             this.menuStripTravelAgency.Location = new System.Drawing.Point(0, 0);
             this.menuStripTravelAgency.Name = "menuStripTravelAgency";
             this.menuStripTravelAgency.Size = new System.Drawing.Size(945, 24);
@@ -67,19 +75,88 @@ namespace TravelAgencyView
             this.directoriesToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.directoriesToolStripMenuItem.Text = "Справочники";
             // 
-            // travelsToolStripMenuItem
+            // conditionsToolStripMenuItem
             // 
-            this.conditionsToolStripMenuItem.Name = "travelsToolStripMenuItem";
-            this.conditionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.conditionsToolStripMenuItem.Name = "conditionsToolStripMenuItem";
+            this.conditionsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.conditionsToolStripMenuItem.Text = "Условия поездки";
             this.conditionsToolStripMenuItem.Click += new System.EventHandler(this.ConditionsToolStripMenuItem_Click);
             // 
-            // setsToolStripMenuItem
+            // travelsToolStripMenuItem
             // 
-            this.travelsToolStripMenuItem.Name = "setsToolStripMenuItem";
-            this.travelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.travelsToolStripMenuItem.Name = "travelsToolStripMenuItem";
+            this.travelsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.travelsToolStripMenuItem.Text = "Путевки";
             this.travelsToolStripMenuItem.Click += new System.EventHandler(this.TravelsToolStripMenuItem_Click);
+            // 
+            // agenciesToolStripMenuItem
+            // 
+            this.agenciesToolStripMenuItem.Name = "agenciesToolStripMenuItem";
+            this.agenciesToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.agenciesToolStripMenuItem.Text = "Склады";
+            this.agenciesToolStripMenuItem.Click += new System.EventHandler(this.agenciesToolStripMenuItem_Click);
+            // 
+            // AgencyReplenishmentToolStripMenuItem
+            // 
+            this.AgencyReplenishmentToolStripMenuItem.Name = "AgencyReplenishmentToolStripMenuItem";
+            this.AgencyReplenishmentToolStripMenuItem.Size = new System.Drawing.Size(136, 20);
+            this.AgencyReplenishmentToolStripMenuItem.Text = "Пополнение складов";
+            this.AgencyReplenishmentToolStripMenuItem.Click += new System.EventHandler(this.AgencyReplenishmentToolStripMenuItem_Click);
+            // 
+            // отчетыToolStripMenuItem
+            // 
+            this.отчетыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ListTravelsToolStripMenuItem,
+            this.ConditionsTravelsToolStripMenuItem,
+            this.OrdersToolStripMenuItem,
+            this.travelAgenciesToolStripMenuItem,
+            this.travelAgenciesConditionsToolStripMenuItem,
+            this.ordersForAllDatesListToolStripMenuItem});
+            this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
+            this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.отчетыToolStripMenuItem.Text = "Отчеты";
+            // 
+            // ListTravelsToolStripMenuItem
+            // 
+            this.ListTravelsToolStripMenuItem.Name = "ListTravelsToolStripMenuItem";
+            this.ListTravelsToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.ListTravelsToolStripMenuItem.Text = "Список поездок";
+            this.ListTravelsToolStripMenuItem.Click += new System.EventHandler(this.ListTravelsToolStripMenuItem_Click);
+            // 
+            // ConditionsTravelsToolStripMenuItem
+            // 
+            this.ConditionsTravelsToolStripMenuItem.Name = "ConditionsTravelsToolStripMenuItem";
+            this.ConditionsTravelsToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.ConditionsTravelsToolStripMenuItem.Text = "Путевки по условиям";
+            this.ConditionsTravelsToolStripMenuItem.Click += new System.EventHandler(this.ConditionsTravelsToolStripMenuItem_Click);
+            // 
+            // OrdersToolStripMenuItem
+            // 
+            this.OrdersToolStripMenuItem.Name = "OrdersToolStripMenuItem";
+            this.OrdersToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.OrdersToolStripMenuItem.Text = "Список заказов";
+            this.OrdersToolStripMenuItem.Click += new System.EventHandler(this.OrdersToolStripMenuItem_Click);
+            // 
+            // travelAgenciesToolStripMenuItem
+            // 
+            this.travelAgenciesToolStripMenuItem.Name = "travelAgenciesToolStripMenuItem";
+            this.travelAgenciesToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.travelAgenciesToolStripMenuItem.Text = "Список складов";
+            this.travelAgenciesToolStripMenuItem.Click += new System.EventHandler(this.travelAgenciesToolStripMenuItem_Click);
+            // 
+            // travelAgenciesConditionsToolStripMenuItem
+            // 
+            this.travelAgenciesConditionsToolStripMenuItem.Name = "travelAgenciesConditionsToolStripMenuItem";
+            this.travelAgenciesConditionsToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.travelAgenciesConditionsToolStripMenuItem.Text = "Условия по складам";
+            this.travelAgenciesConditionsToolStripMenuItem.Click += new System.EventHandler(this.travelAgenciesConditionsToolStripMenuItem_Click);
+            // 
+            // ordersForAllDatesListToolStripMenuItem
+            // 
+            this.ordersForAllDatesListToolStripMenuItem.Name = "ordersForAllDatesListToolStripMenuItem";
+            this.ordersForAllDatesListToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.ordersForAllDatesListToolStripMenuItem.Text = "Список заказов за весь период";
+            this.ordersForAllDatesListToolStripMenuItem.Click += new System.EventHandler(this.ordersForAllDatesListToolStripMenuItem_Click);
             // 
             // dataGridViewOrders
             // 
@@ -141,20 +218,6 @@ namespace TravelAgencyView
             this.buttonRef.UseVisualStyleBackColor = true;
             this.buttonRef.Click += new System.EventHandler(this.ButtonRef_Click);
             // 
-            // agenciesToolStripMenuItem
-            // 
-            this.agenciesToolStripMenuItem.Name = "agenciesToolStripMenuItem";
-            this.agenciesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.agenciesToolStripMenuItem.Text = "Склады";
-            this.agenciesToolStripMenuItem.Click += new System.EventHandler(this.agenciesToolStripMenuItem_Click);
-            // 
-            // AgencyReplenishmentToolStripMenuItem
-            // 
-            this.AgencyReplenishmentToolStripMenuItem.Name = "AgencyReplenishmentToolStripMenuItem";
-            this.AgencyReplenishmentToolStripMenuItem.Size = new System.Drawing.Size(136, 20);
-            this.AgencyReplenishmentToolStripMenuItem.Text = "Пополнение складов";
-            this.AgencyReplenishmentToolStripMenuItem.Click += new System.EventHandler(this.AgencyReplenishmentToolStripMenuItem_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,5 +256,12 @@ namespace TravelAgencyView
         private System.Windows.Forms.Button buttonRef;
         private System.Windows.Forms.ToolStripMenuItem agenciesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem AgencyReplenishmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ListTravelsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ConditionsTravelsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem OrdersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem travelAgenciesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem travelAgenciesConditionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ordersForAllDatesListToolStripMenuItem;
     }
 }
