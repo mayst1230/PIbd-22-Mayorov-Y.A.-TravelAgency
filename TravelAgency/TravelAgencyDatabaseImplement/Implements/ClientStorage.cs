@@ -35,7 +35,7 @@ namespace TravelAgencyDatabaseImplement.Implements
             using (var context = new TravelAgencyDatabase())
             {
                 return context.Clients.Include(x => x.Orders)
-                .Where(rec => rec.Email == model.Email && rec.Password == rec.Password)
+                .Where(rec => rec.Email == model.Email && rec.Password == model.Password)
                 .Select(rec => new ClientViewModel
                 {
                     Id = rec.Id,
