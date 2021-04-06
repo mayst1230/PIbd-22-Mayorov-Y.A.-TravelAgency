@@ -493,7 +493,15 @@ SpreadsheetDocument.Create(info.FileName, SpreadsheetDocumentType.Workbook))
 
                         rowIndex++;
                     }
-
+                    InsertCellInWorksheet(new ExcelCellParameters
+                    {
+                        Worksheet = worksheetPart.Worksheet,
+                        ShareStringPart = sharedStringPart,
+                        ColumnName = "A",
+                        RowIndex = rowIndex,
+                        Text = "Итого:",
+                        StyleIndex = 0U
+                    });
                     InsertCellInWorksheet(new ExcelCellParameters
                     {
                         Worksheet = worksheetPart.Worksheet,
@@ -504,7 +512,7 @@ SpreadsheetDocument.Create(info.FileName, SpreadsheetDocumentType.Workbook))
                         StyleIndex = 0U
                     });
 
-                    rowIndex++;
+                    rowIndex += 2;
                 }
 
                 workbookPart.Workbook.Save();
