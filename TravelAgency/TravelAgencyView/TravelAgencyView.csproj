@@ -339,7 +339,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Report.rdlc" />
-    <EmbeddedResource Include="ReportOrdersForAllDates.rdlc" />
+    <EmbeddedResource Include="ReportDates.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\TravelAgencyBusinnesLogic.ViewModels.AgencyViewModel.datasource" />
     <None Include="Properties\DataSources\TravelAgencyBusinnesLogic.ViewModels.ConditionViewModel.datasource" />

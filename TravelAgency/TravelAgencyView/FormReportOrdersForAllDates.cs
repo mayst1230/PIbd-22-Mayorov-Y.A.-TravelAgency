@@ -57,10 +57,5 @@ namespace TravelAgencyView
                 }
             }
         }
-
-        private void FormReportOrdersForAllDates_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
