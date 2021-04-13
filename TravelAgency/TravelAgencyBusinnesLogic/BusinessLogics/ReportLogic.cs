@@ -77,23 +77,21 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
             var conditions = _conditionStorage.GetFullList();
             var travelAgencies = _agencyStorage.GetFullList();
             var records = new List<ReportTravelAgencyConditionViewModel>();
-            foreach (var storeHouse in travelAgencies)
+            foreach (var travelAgency in travelAgencies)
             {
                 var record = new ReportTravelAgencyConditionViewModel
                 {
-                    TravelAgencyName = storeHouse.AgencyName,
+                    TravelAgencyName = travelAgency.AgencyName,
                     Conditions = new List<Tuple<string, int>>(),
                     TotalCount = 0
                 };
-                foreach (var condition in conditions)
+                foreach (var condition in travelAgency.AgencyConditions)
                 {
-                    if (storeHouse.AgencyConditions.ContainsKey(condition.Id))
-                    {
-                        record.Conditions.Add(new Tuple<string, int>(
-                            condition.ConditionName, storeHouse.AgencyConditions[condition.Id].Item2));
-
-                        record.TotalCount += storeHouse.AgencyConditions[condition.Id].Item2;
-                    }
+                    record.Conditions.Add(new Tuple<string, int>(condition.Value.Item1, condition.Value.Item2));
+                    record.TotalCount += condition.Value.Item2;
+                        /*record.Conditions.Add(new Tuple<string, int>(
+                        condition.ConditionName, travelAgency.AgencyConditions[condition.Id].Item2));
+                        record.TotalCount += travelAgency.AgencyConditions[condition.Id].Item2;*/
                 }
                 records.Add(record);
             }
