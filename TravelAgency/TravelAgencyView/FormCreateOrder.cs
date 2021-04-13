@@ -13,25 +13,36 @@ namespace TravelAgencyView
         public new IUnityContainer Container { get; set; }
         private readonly TravelLogic _logicT;
         private readonly OrderLogic _logicO;
+        private readonly ClientLogic _logicC;
 
-        public FormCreateOrder(TravelLogic logicT, OrderLogic logicO)
+        public FormCreateOrder(TravelLogic logicT, OrderLogic logicO, ClientLogic logicC)
         {
             InitializeComponent();
             _logicT = logicT;
             _logicO = logicO;
+            _logicC = logicC;
         }
 
         private void FormCreateOrder_Load(object sender, EventArgs e)
         {
             try
             {
-                var list = _logicT.Read(null);
-                if (list != null)
+                var listTravels = _logicT.Read(null);
+                foreach (var travel in listTravels)
                 {
-                    comboBoxTravel.DataSource = list;
+                    comboBoxTravel.DataSource = listTravels;
                     comboBoxTravel.DisplayMember = "TravelName";
                     comboBoxTravel.ValueMember = "Id";
                     comboBoxTravel.SelectedItem = null;
+                }
+
+                var listClients = _logicC.Read(null);
+                foreach (var client in listClients)
+                {
+                    comboBoxClient.DataSource = listClients;
+                    comboBoxClient.DisplayMember = "ClientFIO";
+                    comboBoxClient.ValueMember = "Id";
+                    comboBoxClient.SelectedItem = null;
                 }
             }
             catch (Exception ex)
@@ -42,8 +53,7 @@ namespace TravelAgencyView
 
         private void CalcSum()
         {
-            if (comboBoxTravel.SelectedValue != null &&
-           !string.IsNullOrEmpty(textBoxCount.Text))
+            if (comboBoxTravel.SelectedValue != null && !string.IsNullOrEmpty(textBoxCount.Text))
             {
                 try
                 {
@@ -83,10 +93,17 @@ namespace TravelAgencyView
                 MessageBox.Show("Выберите путевку", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (comboBoxClient.SelectedValue == null)
+            {
+                MessageBox.Show("Выберите клиента", "Ошибка", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 _logicO.CreateOrder(new CreateOrderBindingModel
                 {
+                    ClientId = Convert.ToInt32(comboBoxClient.SelectedValue),
                     TravelId = Convert.ToInt32(comboBoxTravel.SelectedValue),
                     Count = Convert.ToInt32(textBoxCount.Text),
                     Sum = Convert.ToDecimal(textBoxSum.Text)
