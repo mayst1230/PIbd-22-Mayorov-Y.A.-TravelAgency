@@ -142,7 +142,7 @@ namespace TravelAgencyDatabaseImplement.Migrations
 
             modelBuilder.Entity("TravelAgencyDatabaseImplement.Models.Order", b =>
                 {
-                    b.HasOne("TravelAgencyDatabaseImplement.Models.Client", null)
+                    b.HasOne("TravelAgencyDatabaseImplement.Models.Client", "Client")
                         .WithMany("Orders")
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade)
