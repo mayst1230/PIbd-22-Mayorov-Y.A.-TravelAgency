@@ -15,7 +15,14 @@ namespace TravelAgencyBusinnesLogic.ViewModels
         public int ClientId { get; set; }
 
         [DataMember]
+        public int? ImplementerId { get; set; }
+
+        [DataMember]
         public int TravelId { get; set; }
+
+        [DataMember]
+        [DisplayName("ФИО исполнителя")]
+        public string ImplementerFIO { get; set; }
 
         [DataMember]
         [DisplayName("Клиент")]

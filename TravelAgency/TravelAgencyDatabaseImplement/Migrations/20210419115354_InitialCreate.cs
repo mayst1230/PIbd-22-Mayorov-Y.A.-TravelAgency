@@ -36,6 +36,21 @@ namespace TravelAgencyDatabaseImplement.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Implementers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ImplementerFIO = table.Column<string>(nullable: true),
+                    WorkingTime = table.Column<int>(nullable: false),
+                    PauseTime = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Implementers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Travels",
                 columns: table => new
                 {
@@ -55,6 +70,7 @@ namespace TravelAgencyDatabaseImplement.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    ImplementerId = table.Column<int>(nullable: true),
                     ClientId = table.Column<int>(nullable: false),
                     TravelId = table.Column<int>(nullable: false),
                     Count = table.Column<int>(nullable: false),
@@ -72,6 +88,12 @@ namespace TravelAgencyDatabaseImplement.Migrations
                         principalTable: "Clients",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Orders_Implementers_ImplementerId",
+                        column: x => x.ImplementerId,
+                        principalTable: "Implementers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Orders_Travels_TravelId",
                         column: x => x.TravelId,
@@ -113,6 +135,11 @@ namespace TravelAgencyDatabaseImplement.Migrations
                 column: "ClientId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Orders_ImplementerId",
+                table: "Orders",
+                column: "ImplementerId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Orders_TravelId",
                 table: "Orders",
                 column: "TravelId");
@@ -138,6 +165,9 @@ namespace TravelAgencyDatabaseImplement.Migrations
 
             migrationBuilder.DropTable(
                 name: "Clients");
+
+            migrationBuilder.DropTable(
+                name: "Implementers");
 
             migrationBuilder.DropTable(
                 name: "Conditions");

@@ -16,6 +16,9 @@ namespace TravelAgencyBusinnesLogic.BindingModels
         public int TravelId { get; set; }
 
         [DataMember]
+        public int? ImplementerId { get; set; }
+
+        [DataMember]
         public int Count { get; set; }
 
         [DataMember]
@@ -35,5 +38,8 @@ namespace TravelAgencyBusinnesLogic.BindingModels
 
         [DataMember]
         public DateTime? DateTo { get; set; }
+
+        [DataMember]
+        public bool? FreeOrders { get; set; }
     }
 }
