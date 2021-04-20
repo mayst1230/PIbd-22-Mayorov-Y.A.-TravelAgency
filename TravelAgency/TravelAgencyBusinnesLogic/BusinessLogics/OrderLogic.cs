@@ -88,10 +88,6 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
             {
                 throw new Exception("Заказ не в статусе \"Выполняется\"");
             }
-            if (order.ImplementerId.HasValue)
-            {
-                throw new Exception("У заказа уже есть исполнитель");
-            }
             _orderStorage.Update(new OrderBindingModel
             {
                 Id = order.Id,
