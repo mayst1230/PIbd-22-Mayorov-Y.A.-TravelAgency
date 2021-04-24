@@ -38,6 +38,7 @@ namespace TravelAgencyView
                     dataGridViewOrders.Columns[0].Visible = false;
                     dataGridViewOrders.Columns[1].Visible = false;
                     dataGridViewOrders.Columns[2].Visible = false;
+                    dataGridViewOrders.Columns[3].Visible = false;
                     dataGridViewOrders.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
@@ -64,45 +65,7 @@ namespace TravelAgencyView
             form.ShowDialog();
             LoadData();
         }
-        private void ButtonTakeOrderInWork_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewOrders.SelectedRows.Count == 1)
-            {
-                int id = Convert.ToInt32(dataGridViewOrders.SelectedRows[0].Cells[0].Value);
-                try
-                {
-                    _orderLogic.TakeOrderInWork(new ChangeStatusBindingModel
-                    {
-                        OrderId = id
-                    });
-                    LoadData();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-        private void ButtonOrderReady_Click(object sender, EventArgs e)
-        {
-            if (dataGridViewOrders.SelectedRows.Count == 1)
-            {
-                int id = Convert.ToInt32(dataGridViewOrders.SelectedRows[0].Cells[0].Value);
-                try
-                {
-                    _orderLogic.FinishOrder(new ChangeStatusBindingModel
-                    {
-                        OrderId = id
-                    });
-                    LoadData();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
-                }
-            }
-        }
+
         private void ButtonPayOrder_Click(object sender, EventArgs e)
         {
             if (dataGridViewOrders.SelectedRows.Count == 1)
@@ -138,7 +101,6 @@ namespace TravelAgencyView
                    MessageBoxIcon.Information);
                 }
             }
-
         }
 
         private void ConditionsTravelsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -156,6 +118,19 @@ namespace TravelAgencyView
         private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormClients>();
+            form.ShowDialog();
+        }
+
+        private void startWorkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var workModeling = Container.Resolve<WorkModeling>();
+            workModeling.DoWork();
+            MessageBox.Show("Работы запущены", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void implementersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<ImplementersForm>();
             form.ShowDialog();
         }
     }
