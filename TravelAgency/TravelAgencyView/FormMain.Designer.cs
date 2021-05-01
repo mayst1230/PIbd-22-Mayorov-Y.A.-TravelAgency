@@ -44,6 +44,7 @@ namespace TravelAgencyView
             this.buttonCreateOrder = new System.Windows.Forms.Button();
             this.buttonPayOrder = new System.Windows.Forms.Button();
             this.buttonRef = new System.Windows.Forms.Button();
+            this.messagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTravelAgency.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).BeginInit();
             this.SuspendLayout();
@@ -54,7 +55,8 @@ namespace TravelAgencyView
             this.menuStripTravelAgency.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.directoriesToolStripMenuItem,
             this.отчетыToolStripMenuItem,
-            this.startWorkToolStripMenuItem});
+            this.startWorkToolStripMenuItem,
+            this.messagesToolStripMenuItem});
             this.menuStripTravelAgency.Location = new System.Drawing.Point(0, 0);
             this.menuStripTravelAgency.Name = "menuStripTravelAgency";
             this.menuStripTravelAgency.Size = new System.Drawing.Size(1123, 24);
@@ -75,28 +77,28 @@ namespace TravelAgencyView
             // conditionsToolStripMenuItem
             // 
             this.conditionsToolStripMenuItem.Name = "conditionsToolStripMenuItem";
-            this.conditionsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.conditionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.conditionsToolStripMenuItem.Text = "Условия поездки";
             this.conditionsToolStripMenuItem.Click += new System.EventHandler(this.ConditionsToolStripMenuItem_Click);
             // 
             // travelsToolStripMenuItem
             // 
             this.travelsToolStripMenuItem.Name = "travelsToolStripMenuItem";
-            this.travelsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.travelsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.travelsToolStripMenuItem.Text = "Путевки";
             this.travelsToolStripMenuItem.Click += new System.EventHandler(this.TravelsToolStripMenuItem_Click);
             // 
             // clientsToolStripMenuItem
             // 
             this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
-            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clientsToolStripMenuItem.Text = "Клиенты";
             this.clientsToolStripMenuItem.Click += new System.EventHandler(this.clientsToolStripMenuItem_Click);
             // 
             // implementersToolStripMenuItem
             // 
             this.implementersToolStripMenuItem.Name = "implementersToolStripMenuItem";
-            this.implementersToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.implementersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.implementersToolStripMenuItem.Text = "Исполнители";
             this.implementersToolStripMenuItem.Click += new System.EventHandler(this.implementersToolStripMenuItem_Click);
             // 
@@ -178,6 +180,13 @@ namespace TravelAgencyView
             this.buttonRef.UseVisualStyleBackColor = true;
             this.buttonRef.Click += new System.EventHandler(this.ButtonRef_Click);
             // 
+            // messagesToolStripMenuItem
+            // 
+            this.messagesToolStripMenuItem.Name = "messagesToolStripMenuItem";
+            this.messagesToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.messagesToolStripMenuItem.Text = "Письма";
+            this.messagesToolStripMenuItem.Click += new System.EventHandler(this.messagesToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,5 +226,6 @@ namespace TravelAgencyView
         private System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startWorkToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem implementersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem messagesToolStripMenuItem;
     }
 }
