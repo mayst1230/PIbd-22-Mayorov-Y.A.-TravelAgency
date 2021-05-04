@@ -441,6 +441,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -468,8 +469,8 @@
             </TablixRowHierarchy>
             <DataSetName>DataSetOrders</DataSetName>
             <Top>4.75051cm</Top>
-            <Height>1.86407cm</Height>
-            <Width>22.88964cm</Width>
+            <Height>1.86408cm</Height>
+            <Width>22.88963cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>

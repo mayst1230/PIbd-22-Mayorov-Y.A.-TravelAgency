@@ -1,13 +1,6 @@
 ﻿using TravelAgencyBusinnesLogic.BindingModels;
 using TravelAgencyBusinnesLogic.BusinessLogics;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
 
@@ -19,12 +12,14 @@ namespace TravelAgencyView
         public new IUnityContainer Container { get; set; }
         private readonly OrderLogic _orderLogic;
         private readonly ReportLogic _reportLogic;
+        private readonly ClientLogic _clientLogic;
 
-        public FormMain(OrderLogic orderLogic, ReportLogic reportLogic)
+        public FormMain(OrderLogic orderLogic, ReportLogic reportLogic, ClientLogic clientLogic)
         {
             InitializeComponent();
             this._orderLogic = orderLogic;
             this._reportLogic = reportLogic;
+            this._clientLogic = clientLogic;
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -42,6 +37,7 @@ namespace TravelAgencyView
                     dataGridViewOrders.DataSource = list;
                     dataGridViewOrders.Columns[0].Visible = false;
                     dataGridViewOrders.Columns[1].Visible = false;
+                    dataGridViewOrders.Columns[2].Visible = false;
                     dataGridViewOrders.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
@@ -128,18 +124,6 @@ namespace TravelAgencyView
             LoadData();
         }
 
-        private void agenciesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormAgencies>();
-            form.ShowDialog();
-        }
-
-        private void AgencyReplenishmentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormAgencyReplenishment>();
-            form.ShowDialog();
-        }
-
         private void ListTravelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var dialog = new SaveFileDialog { Filter = "docx|*.docx" })
@@ -154,6 +138,7 @@ namespace TravelAgencyView
                    MessageBoxIcon.Information);
                 }
             }
+
         }
 
         private void ConditionsTravelsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -168,31 +153,9 @@ namespace TravelAgencyView
             form.ShowDialog();
         }
 
-        private void travelAgenciesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (var dialog = new SaveFileDialog { Filter = "docx|*.docx" })
-            {
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    _reportLogic.SaveTravelAgenciesToWordFile(new ReportBindingModel
-                    {
-                        FileName = dialog.FileName
-                    });
-
-                    MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-        }
-
-        private void travelAgenciesConditionsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormReportTravelAgencyConditions>();
-            form.ShowDialog();
-        }
-
-        private void ordersForAllDatesListToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormReportOrdersForAllDates>();
+            var form = Container.Resolve<FormClients>();
             form.ShowDialog();
         }
     }
