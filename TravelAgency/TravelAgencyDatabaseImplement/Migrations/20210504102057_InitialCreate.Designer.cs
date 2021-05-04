@@ -10,7 +10,7 @@ using TravelAgencyDatabaseImplement;
 namespace TravelAgencyDatabaseImplement.Migrations
 {
     [DbContext(typeof(TravelAgencyDatabase))]
-    [Migration("20210409082135_InitialCreate")]
+    [Migration("20210504102057_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,54 @@ namespace TravelAgencyDatabaseImplement.Migrations
                 .HasAnnotation("ProductVersion", "3.1.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("TravelAgencyDatabaseImplement.Models.Agency", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateCreate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FullNameResponsible")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TravelAgencyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TravelAgencies");
+                });
+
+            modelBuilder.Entity("TravelAgencyDatabaseImplement.Models.AgencyCondition", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ConditionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TravelAgencyId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ConditionId");
+
+                    b.HasIndex("TravelAgencyId");
+
+                    b.ToTable("TravelAgencyConditions");
+                });
 
             modelBuilder.Entity("TravelAgencyDatabaseImplement.Models.Client", b =>
                 {
@@ -142,9 +190,24 @@ namespace TravelAgencyDatabaseImplement.Migrations
                     b.ToTable("TravelConditions");
                 });
 
+            modelBuilder.Entity("TravelAgencyDatabaseImplement.Models.AgencyCondition", b =>
+                {
+                    b.HasOne("TravelAgencyDatabaseImplement.Models.Condition", "Condition")
+                        .WithMany("TravelAgencyConditions")
+                        .HasForeignKey("ConditionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TravelAgencyDatabaseImplement.Models.Agency", "TravelAgency")
+                        .WithMany("TravelAgencyConditions")
+                        .HasForeignKey("TravelAgencyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("TravelAgencyDatabaseImplement.Models.Order", b =>
                 {
-                    b.HasOne("TravelAgencyDatabaseImplement.Models.Client", null)
+                    b.HasOne("TravelAgencyDatabaseImplement.Models.Client", "Client")
                         .WithMany("Orders")
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade)

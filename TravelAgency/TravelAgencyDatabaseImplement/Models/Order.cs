@@ -25,6 +25,8 @@ namespace TravelAgencyDatabaseImplement.Models
         [Required]
         public DateTime DateCreate { get; set; }
         public DateTime? DateImplement { get; set; }
+
         public virtual Travel Travel { get; set; }
+        public virtual Client Client { get; set; }
     }
 }

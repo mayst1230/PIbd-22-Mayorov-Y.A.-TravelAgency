@@ -124,6 +124,18 @@ namespace TravelAgencyView
             LoadData();
         }
 
+        private void agenciesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormAgencies>();
+            form.ShowDialog();
+        }
+
+        private void AgencyReplenishmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormAgencyReplenishment>();
+            form.ShowDialog();
+        }
+
         private void ListTravelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var dialog = new SaveFileDialog { Filter = "docx|*.docx" })
@@ -156,6 +168,34 @@ namespace TravelAgencyView
         private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormClients>();
+            form.ShowDialog();
+        }
+
+        private void travelAgenciesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var dialog = new SaveFileDialog { Filter = "docx|*.docx" })
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    _reportLogic.SaveTravelAgenciesToWordFile(new ReportBindingModel
+                    {
+                        FileName = dialog.FileName
+                    });
+
+                    MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void travelAgenciesConditionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormReportTravelAgencyConditions>();
+            form.ShowDialog();
+        }
+
+        private void ordersForAllDatesListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormReportOrdersForAllDates>();
             form.ShowDialog();
         }
     }
