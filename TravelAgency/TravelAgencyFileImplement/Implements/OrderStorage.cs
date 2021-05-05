@@ -1,6 +1,7 @@
 ﻿using TravelAgencyBusinnesLogic.BindingModels;
 using TravelAgencyBusinnesLogic.Interfaces;
 using TravelAgencyBusinnesLogic.ViewModels;
+using TravelAgencyBusinnesLogic.Enums;
 using TravelAgencyFileImplement.Models;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,8 @@ namespace TravelAgencyFileImplement.Implements
             .Where(rec => (!model.DateFrom.HasValue && !model.DateTo.HasValue &&
             rec.DateCreate.Date == model.DateCreate.Date) || (model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateCreate.Date
             >= model.DateFrom.Value.Date && rec.DateCreate.Date <= model.DateTo.Value.Date) ||
-            (model.ClientId.HasValue && rec.ClientId == model.ClientId))
+            (model.ClientId.HasValue && rec.ClientId == model.ClientId) || (model.FreeOrders.HasValue && model.FreeOrders.Value && rec.Status == OrderStatus.Принят) ||
+            (model.ImplementerId.HasValue && rec.ImplementerId == model.ImplementerId && rec.Status == OrderStatus.Выполняется))
             .Select(CreateModel)
             .ToList();
         }
@@ -81,6 +83,7 @@ namespace TravelAgencyFileImplement.Implements
         {
             order.TravelId = model.TravelId;
             order.ClientId = (int)model.ClientId;
+            order.ImplementerId = model.ImplementerId;
             order.Count = model.Count;
             order.Sum = model.Sum;
             order.Status = model.Status;
@@ -104,6 +107,8 @@ namespace TravelAgencyFileImplement.Implements
                 Id = order.Id,
                 ClientId = order.ClientId,
                 ClientFIO = source.Clients.FirstOrDefault(rec => rec.Id == order.ClientId)?.ClientFIO,
+                ImplementerId = order.ImplementerId,
+                ImplementerFIO = source.Implementers.FirstOrDefault(rec => rec.Id == order.ImplementerId)?.ImplementerFIO,
                 TravelId = order.TravelId,
                 TravelName = source.Travels.FirstOrDefault(x => x.Id == order.TravelId)?.TravelName,
                 Count = order.Count,
