@@ -9,6 +9,7 @@ namespace TravelAgencyListImplement
         public List<Condition> Conditions { get; set; }
         public List<Order> Orders { get; set; }
         public List<Travel> Travels { get; set; }
+        public List<Client> Clients { get; set; }
         public List<Agency> Agencies { get; set; }
 
         private DataListSingleton()
@@ -16,6 +17,7 @@ namespace TravelAgencyListImplement
             Conditions = new List<Condition>();
             Orders = new List<Order>();
             Travels = new List<Travel>();
+            Clients = new List<Client>();
             Agencies = new List<Agency>();
         }
 

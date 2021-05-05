@@ -10,7 +10,7 @@ using TravelAgencyDatabaseImplement;
 namespace TravelAgencyDatabaseImplement.Migrations
 {
     [DbContext(typeof(TravelAgencyDatabase))]
-    [Migration("20210410141330_InitialCreate")]
+    [Migration("20210505075955_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -69,6 +69,30 @@ namespace TravelAgencyDatabaseImplement.Migrations
                     b.ToTable("TravelAgencyConditions");
                 });
 
+            modelBuilder.Entity("TravelAgencyDatabaseImplement.Models.Client", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClientFIO")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Clients");
+                });
+
             modelBuilder.Entity("TravelAgencyDatabaseImplement.Models.Condition", b =>
                 {
                     b.Property<int>("Id")
@@ -92,6 +116,9 @@ namespace TravelAgencyDatabaseImplement.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Count")
                         .HasColumnType("int");
 
@@ -111,6 +138,8 @@ namespace TravelAgencyDatabaseImplement.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
 
                     b.HasIndex("TravelId");
 
@@ -178,6 +207,12 @@ namespace TravelAgencyDatabaseImplement.Migrations
 
             modelBuilder.Entity("TravelAgencyDatabaseImplement.Models.Order", b =>
                 {
+                    b.HasOne("TravelAgencyDatabaseImplement.Models.Client", "Client")
+                        .WithMany("Orders")
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("TravelAgencyDatabaseImplement.Models.Travel", "Travel")
                         .WithMany("Orders")
                         .HasForeignKey("TravelId")

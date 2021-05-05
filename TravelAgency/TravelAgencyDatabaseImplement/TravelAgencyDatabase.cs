@@ -17,6 +17,7 @@ namespace TravelAgencyDatabaseImplement
         public virtual DbSet<Travel> Travels { set; get; }
         public virtual DbSet<TravelCondition> TravelConditions { set; get; }
         public virtual DbSet<Order> Orders { set; get; }
+        public virtual DbSet<Client> Clients { set; get; }
         public virtual DbSet<Agency> TravelAgencies { set; get; }
         public virtual DbSet<AgencyCondition> TravelAgencyConditions { set; get; }
 
