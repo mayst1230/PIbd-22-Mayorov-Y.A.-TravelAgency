@@ -250,7 +250,7 @@ namespace TravelAgencyDatabaseImplement.Implements
                     catch
                     {
                         transaction.Rollback();
-                        throw;
+                        return false;
                     }
                 }
             }

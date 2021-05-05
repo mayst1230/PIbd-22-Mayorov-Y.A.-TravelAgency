@@ -1,13 +1,14 @@
 ﻿using System;
 using TravelAgencyBusinnesLogic.Enums;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TravelAgencyDatabaseImplement.Models
 {
     public class Order
     {
         public int Id { get; set; }
+
+        public int? ImplementerId { get; set; }
 
         public int ClientId { get; set; }
 
@@ -24,9 +25,13 @@ namespace TravelAgencyDatabaseImplement.Models
 
         [Required]
         public DateTime DateCreate { get; set; }
+
         public DateTime? DateImplement { get; set; }
 
         public virtual Travel Travel { get; set; }
+
         public virtual Client Client { get; set; }
+
+        public virtual Implementer Implementer { get; set; }
     }
 }

@@ -301,6 +301,18 @@
     <Compile Include="FormTravels.Designer.cs">
       <DependentUpon>FormTravels.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImplementerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImplementerForm.Designer.cs">
+      <DependentUpon>ImplementerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImplementersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImplementersForm.Designer.cs">
+      <DependentUpon>ImplementersForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -336,6 +348,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormTravels.resx">
       <DependentUpon>FormTravels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImplementerForm.resx">
+      <DependentUpon>ImplementerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImplementersForm.resx">
+      <DependentUpon>ImplementersForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
