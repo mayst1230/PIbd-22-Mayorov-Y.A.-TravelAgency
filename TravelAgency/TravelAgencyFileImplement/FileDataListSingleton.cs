@@ -79,6 +79,7 @@ namespace TravelAgencyFileImplement
                     {
                         Id = Convert.ToInt32(elem.Attribute("Id").Value),
                         TravelId = Convert.ToInt32(elem.Element("TravelId").Value),
+                        ClientId = Convert.ToInt32(elem.Element("ClientId").Value),
                         Count = Convert.ToInt32(elem.Element("Count").Value),
                         Sum = Convert.ToDecimal(elem.Element("Sum").Value),
                         Status = (OrderStatus)Enum.Parse(typeof(OrderStatus), elem.Element("Status").Value),
@@ -198,6 +199,7 @@ namespace TravelAgencyFileImplement
                     xElement.Add(new XElement("Order",
                     new XAttribute("Id", order.Id),
                     new XElement("TravelId", order.TravelId),
+                    new XElement("ClientId", order.TravelId),
                     new XElement("Count", order.Count),
                     new XElement("Sum", order.Sum),
                     new XElement("Status", order.Status),
