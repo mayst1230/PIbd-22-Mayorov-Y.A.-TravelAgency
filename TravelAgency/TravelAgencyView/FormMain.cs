@@ -133,5 +133,11 @@ namespace TravelAgencyView
             var form = Container.Resolve<ImplementersForm>();
             form.ShowDialog();
         }
+
+        private void messagesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormMessages>();
+            form.ShowDialog();
+        }
     }
 }
