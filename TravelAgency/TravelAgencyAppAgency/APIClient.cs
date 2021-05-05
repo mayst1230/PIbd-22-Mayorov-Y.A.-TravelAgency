@@ -1,15 +1,18 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 
-namespace TravelAgencyClientApp
+namespace TravelAgencyAppAgency
 {
-    public static class APIClient
+    public class APIClient
     {
         private static readonly HttpClient client = new HttpClient();
+
         public static void Connect(IConfiguration configuration)
         {
             client.BaseAddress = new Uri(configuration["IPAddress"]);
