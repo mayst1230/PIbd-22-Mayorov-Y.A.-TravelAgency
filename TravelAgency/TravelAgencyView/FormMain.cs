@@ -38,6 +38,7 @@ namespace TravelAgencyView
                     dataGridViewOrders.Columns[0].Visible = false;
                     dataGridViewOrders.Columns[1].Visible = false;
                     dataGridViewOrders.Columns[2].Visible = false;
+                    dataGridViewOrders.Columns[3].Visible = false;
                     dataGridViewOrders.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
@@ -197,6 +198,19 @@ namespace TravelAgencyView
         {
             var form = Container.Resolve<FormReportOrdersForAllDates>();
             form.ShowDialog();
+        }
+
+        private void implementersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<ImplementersForm>();
+            form.ShowDialog();
+        }
+
+        private void doWorkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var workModeling = Container.Resolve<WorkModeling>();
+            workModeling.DoWork();
+            MessageBox.Show("Работы запущены", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

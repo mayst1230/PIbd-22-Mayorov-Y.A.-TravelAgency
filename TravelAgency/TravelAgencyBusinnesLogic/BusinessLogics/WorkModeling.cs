@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using TravelAgencyBusinnesLogic.BindingModels;
+using TravelAgencyBusinnesLogic.Enums;
 using TravelAgencyBusinnesLogic.Interfaces;
 using TravelAgencyBusinnesLogic.ViewModels;
 
@@ -47,6 +49,35 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
                 _orderLogic.FinishOrder(new ChangeStatusBindingModel { OrderId = order.Id, ImplementerId = implementer.Id });
                 // отдыхаем
                 Thread.Sleep(implementer.PauseTime);
+            }
+            var requiredMaterialsOrders = await Task.Run(() => _orderLogic.Read(null)
+                .Where(rec => rec.Status == OrderStatus.Пополнение_склада).ToList());
+
+            foreach (var order in requiredMaterialsOrders)
+            {
+                try
+                {
+                    _orderLogic.TakeOrderInWork(new ChangeStatusBindingModel
+                    {
+                        OrderId = order.Id,
+                        ImplementerId = implementer.Id
+                    });
+
+                    var processedOrder = _orderStorage.GetElement(new OrderBindingModel
+                    {
+                        Id = order.Id
+                    });
+
+                    if (processedOrder.Status == OrderStatus.Пополнение_склада)
+                    {
+                        continue;
+                    }
+
+                    Thread.Sleep(implementer.WorkingTime * rnd.Next(1, 5) * order.Count);
+                    _orderLogic.FinishOrder(new ChangeStatusBindingModel { OrderId = order.Id });
+                    Thread.Sleep(implementer.PauseTime);
+                }
+                catch (Exception) { }
             }
             await Task.Run(() =>
             {

@@ -12,6 +12,8 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
         private readonly IOrderStorage _orderStorage;
         private readonly ITravelStorage _travelStorage;
         private readonly IAgencyStorage _agencyStorage;
+        private readonly object locker = new object();
+
         public OrderLogic(IOrderStorage orderStorage, ITravelStorage travelStorage, IAgencyStorage agencyStorage)
         {
             _orderStorage = orderStorage;
@@ -44,34 +46,47 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
         }
         public void TakeOrderInWork(ChangeStatusBindingModel model)
         {
-            var order = _orderStorage.GetElement(new OrderBindingModel
+            lock (locker)
             {
-                Id = model.OrderId
-            });
-            if (order == null)
-            {
-                throw new Exception("Не найден заказ");
+                OrderViewModel order = _orderStorage.GetElement(new OrderBindingModel
+                {
+                    Id = model.OrderId
+                });
+                if (order == null)
+                {
+                    throw new Exception("Не найден заказ");
+                }
+                if (order.Status != OrderStatus.Принят && order.Status != OrderStatus.Пополнение_склада)
+                {
+                    throw new Exception("Заказ еще не принят");
+                }
+
+                var updateBindingModel = new OrderBindingModel
+                {
+                    Id = order.Id,
+                    TravelId = order.TravelId,
+                    Count = order.Count,
+                    Sum = order.Sum,
+                    DateCreate = order.DateCreate,
+                    ClientId = order.ClientId
+                };
+
+                if (!_agencyStorage.TakeFromTravelAgency(_travelStorage.GetElement
+                    (new TravelBindingModel { Id = order.TravelId }).TravelConditions, order.Count))
+                {
+                    updateBindingModel.Status = OrderStatus.Пополнение_склада;
+                }
+                else
+                {
+                    updateBindingModel.DateImplement = DateTime.Now;
+                    updateBindingModel.Status = OrderStatus.Выполняется;
+                    updateBindingModel.ImplementerId = model.ImplementerId;
+                }
+
+                _orderStorage.Update(updateBindingModel);
             }
-            if (order.Status != OrderStatus.Принят)
-            {
-                throw new Exception("Заказ не в статусе \"Принят\"");
-            }
-            if (!_agencyStorage.TakeFromTravelAgency(_travelStorage.GetElement(new TravelBindingModel { Id = order.TravelId }).TravelConditions, order.Count))
-            {
-                throw new Exception("Недостаточно условий для поездок");
-            }
-            _orderStorage.Update(new OrderBindingModel
-            {
-                Id = order.Id,
-                TravelId = order.TravelId,
-                ClientId = order.ClientId,
-                Count = order.Count,
-                Sum = order.Sum,
-                DateCreate = order.DateCreate,
-                DateImplement = DateTime.Now,
-                Status = OrderStatus.Выполняется
-            });
         }
+    
         public void FinishOrder(ChangeStatusBindingModel model)
         {
             var order = _orderStorage.GetElement(new OrderBindingModel
@@ -91,6 +106,7 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
                 Id = order.Id,
                 TravelId = order.TravelId,
                 ClientId = order.ClientId,
+                ImplementerId = order.ImplementerId,
                 Count = order.Count,
                 Sum = order.Sum,
                 DateCreate = order.DateCreate,
