@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.Serialization;
+using TravelAgencyBusinnesLogic.Attributes;
 
 namespace TravelAgencyBusinnesLogic.ViewModels
 {
@@ -8,17 +9,21 @@ namespace TravelAgencyBusinnesLogic.ViewModels
     {
         [DataMember]
         public string MessageId { get; set; }
-        [DisplayName("Отправитель")]
+        
         [DataMember]
+        [Column(title: "Отправитель", width: 100)]
         public string SenderName { get; set; }
-        [DisplayName("Дата письма")]
+        
         [DataMember]
+        [Column(title: "Дата письма", width: 50)]
         public DateTime DateDelivery { get; set; }
-        [DisplayName("Заголовок")]
+
         [DataMember]
+        [Column(title: "Заголовок", width: 150)]
         public string Subject { get; set; }
-        [DisplayName("Текст")]
+
         [DataMember]
+        [Column(title: "Текст", gridViewAutoSize: GridViewAutoSize.Fill)]
         public string Body { get; set; }
     }
 }

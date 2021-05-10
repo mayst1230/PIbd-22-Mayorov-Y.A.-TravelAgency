@@ -25,13 +25,7 @@ namespace TravelAgencyView
         {
             try
             {
-                var list = logic.Read(null);
-                if (list != null)
-                {
-                    dataGridViewConditions.DataSource = list;
-                    dataGridViewConditions.Columns[0].Visible = false;
-                    dataGridViewConditions.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                }
+                Program.ConfigGrid(logic.Read(null), dataGridViewConditions);
             }
             catch (Exception ex)
             {
