@@ -1,27 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.Serialization;
+using TravelAgencyBusinnesLogic.Attributes;
 
 namespace TravelAgencyBusinnesLogic.ViewModels
 {
     [DataContract]
     public class ClientViewModel
     {
+        
         [DataMember]
+        [Column(title: "Номер", width: 100)]
         public int Id { get; set; }
 
         [DataMember]
-        [DisplayName("Имя клиента")]
+        [Column(title: "Клиент", width: 150)]
         public string ClientFIO { get; set; }
 
         [DataMember]
-        [DisplayName("Логин")]
+        [Column(title: "Логин", width: 100)]
         public string Email { get; set; }
 
         [DataMember]
-        [DisplayName("Пароль")]
+        [Column(title: "Пароль", width: 100)]
         public string Password { get; set; }
     }
 }

@@ -32,14 +32,7 @@ namespace TravelAgencyView
         {
             try
             {
-                var list = logic.Read(null);
-                if (list != null)
-                {
-                    dataGridViewTravel.DataSource = list;
-                    dataGridViewTravel.Columns[0].Visible = false;
-                    dataGridViewTravel.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    dataGridViewTravel.Columns[3].Visible = false;
-                }
+                Program.ConfigGrid(logic.Read(null), dataGridViewTravel);
             }
             catch (Exception ex)
             {

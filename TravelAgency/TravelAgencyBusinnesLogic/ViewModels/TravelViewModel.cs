@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.Serialization;
+using TravelAgencyBusinnesLogic.Attributes;
 
 namespace TravelAgencyBusinnesLogic.ViewModels
 {
@@ -11,11 +12,11 @@ namespace TravelAgencyBusinnesLogic.ViewModels
         public int? Id { get; set; }
 
         [DataMember]
-        [DisplayName("Название поездки")]
+        [Column(title: "Путевка", gridViewAutoSize: GridViewAutoSize.Fill)]
         public string TravelName { get; set; }
 
         [DataMember]
-        [DisplayName("Цена")]
+        [Column(title: "Цена", width: 50)]
         public decimal Price { get; set; }
 
         [DataMember]

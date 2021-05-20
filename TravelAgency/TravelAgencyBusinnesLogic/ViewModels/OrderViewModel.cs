@@ -1,7 +1,8 @@
-﻿using TravelAgencyBusinnesLogic.Enums;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Runtime.Serialization;
+using TravelAgencyBusinnesLogic.Attributes;
+using TravelAgencyBusinnesLogic.Enums;
 
 namespace TravelAgencyBusinnesLogic.ViewModels
 {
@@ -9,6 +10,7 @@ namespace TravelAgencyBusinnesLogic.ViewModels
     public class OrderViewModel
     {
         [DataMember]
+        [Column(title: "Номер", width: 100)]
         public int Id { get; set; }
 
         [DataMember]
@@ -21,36 +23,36 @@ namespace TravelAgencyBusinnesLogic.ViewModels
         public int TravelId { get; set; }
 
         [DataMember]
-        [DisplayName("ФИО исполнителя")]
+        [Column(title: "Исполнитель", width: 150)]
         public string ImplementerFIO { get; set; }
 
         [DataMember]
-        [DisplayName("Клиент")]
+        [Column(title: "Клиент", width: 150)]
         public string ClientFIO { get; set; }
 
 
         [DataMember]
-        [DisplayName("Название путевки")]
+        [Column(title: "Путевка", width: 150)]
         public string TravelName { get; set; }
 
         [DataMember]
-        [DisplayName("Количество")]
+        [Column(title: "Количество", width: 100)]
         public int Count { get; set; }
 
         [DataMember]
-        [DisplayName("Сумма")]
+        [Column(title: "Сумма", width: 50)]
         public decimal Sum { get; set; }
 
         [DataMember]
-        [DisplayName("Статус")]
+        [Column(title: "Статус", width: 100)]
         public OrderStatus Status { get; set; }
 
         [DataMember]
-        [DisplayName("Дата создания")]
+        [Column(title: "Дата создания", width: 100)]
         public DateTime DateCreate { get; set; }
 
         [DataMember]
-        [DisplayName("Дата выполнения")]
+        [Column(title: "Дата выполнения", width: 100)]
         public DateTime? DateImplement { get; set; }
     }
 }
