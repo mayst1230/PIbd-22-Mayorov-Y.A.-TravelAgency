@@ -145,5 +145,18 @@ namespace TravelAgencyBusinnesLogic.BusinessLogics
                 });
             }
         }
+        public List<MessageInfoViewModel> GetMessagesPage(MessageInfoBindingModel model)
+        {
+            if (model == null || !model.Page.HasValue || !model.PageSize.HasValue)
+            {
+                return null;
+            }
+            return _messageInfoStorage.GetMessagesPage(model);
+        }
+
+        public int Count()
+        {
+            return _messageInfoStorage.Count();
+        }
     }
 }

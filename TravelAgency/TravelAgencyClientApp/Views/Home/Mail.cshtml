@@ -1,5 +1,5 @@
 ﻿@using TravelAgencyBusinnesLogic.ViewModels
-@model List<MessageInfoViewModel>
+@model PageViewModel
 @{
     ViewData["Title"] = "Mail"; 
 }
@@ -31,7 +31,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var item in Model.Messages)
                 {
                     <tr>
                         <td>
@@ -51,4 +51,38 @@
             </tbody>
         </table> 
         }
+</div>
+
+<div class="btn-group">
+    @if (Model.HasPreviousPage)
+    {
+        <a asp-action="Mail"
+           asp-route-page="@(Model.PageNumber - 1)"
+           class="btn btn-outline-dark">
+            Назад
+        </a>
+        <a asp-action="Mail"
+           asp-route-page="@(Model.PageNumber - 1)"
+           class="btn btn-outline-dark">
+            @(Model.PageNumber - 1)
+        </a>
+    }
+
+    <a class="btn btn-outline-dark">
+        @(Model.PageNumber)
+    </a>
+
+    @if (Model.HasNextPage)
+    {
+        <a asp-action="Mail"
+           asp-route-page="@(Model.PageNumber + 1)"
+           class="btn btn-outline-dark">
+            @(Model.PageNumber + 1)
+        </a>
+        <a asp-action="Mail"
+           asp-route-page="@(Model.PageNumber + 1)"
+           class="btn btn-outline-dark">
+            Следующая
+        </a>
+    }
 </div>

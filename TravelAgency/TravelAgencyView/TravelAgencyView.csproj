@@ -246,6 +246,24 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAgencies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgencies.Designer.cs">
+      <DependentUpon>FormAgencies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAgency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgency.Designer.cs">
+      <DependentUpon>FormAgency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAgencyReplenishment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAgencyReplenishment.Designer.cs">
+      <DependentUpon>FormAgencyReplenishment.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormClients.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,6 +305,18 @@
     </Compile>
     <Compile Include="FormReportOrders.Designer.cs">
       <DependentUpon>FormReportOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportOrdersForAllDates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportOrdersForAllDates.Designer.cs">
+      <DependentUpon>FormReportOrdersForAllDates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportTravelAgencyConditions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportTravelAgencyConditions.Designer.cs">
+      <DependentUpon>FormReportTravelAgencyConditions.cs</DependentUpon>
     </Compile>
     <Compile Include="FormReportTravelConditions.cs">
       <SubType>Form</SubType>
@@ -347,6 +377,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormReportOrders.resx">
       <DependentUpon>FormReportOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportOrdersForAllDates.resx">
+      <DependentUpon>FormReportOrdersForAllDates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportTravelAgencyConditions.resx">
+      <DependentUpon>FormReportTravelAgencyConditions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReportTravelConditions.resx">
       <DependentUpon>FormReportTravelConditions.cs</DependentUpon>

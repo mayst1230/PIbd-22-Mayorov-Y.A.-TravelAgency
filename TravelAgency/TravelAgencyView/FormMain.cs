@@ -212,5 +212,11 @@ namespace TravelAgencyView
             workModeling.DoWork();
             MessageBox.Show("Работы запущены", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void mailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormMessages>();
+            form.ShowDialog();
+        }
     }
 }

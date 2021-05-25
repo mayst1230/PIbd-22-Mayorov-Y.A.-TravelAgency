@@ -11,5 +11,9 @@ namespace TravelAgencyBusinnesLogic.Interfaces
         List<MessageInfoViewModel> GetFilteredList(MessageInfoBindingModel model);
 
         void Insert(MessageInfoBindingModel model);
+
+        List<MessageInfoViewModel> GetMessagesPage(MessageInfoBindingModel model);
+
+        int Count();
     }
 }

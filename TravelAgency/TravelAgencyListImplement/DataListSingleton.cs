@@ -12,6 +12,7 @@ namespace TravelAgencyListImplement
         public List<Client> Clients { get; set; }
         public List<Implementer> Implementers { get; set; }
         public List<Agency> Agencies { get; set; }
+        public List<MessageInfo> Messages { get; set; }
 
         private DataListSingleton()
         {
@@ -21,6 +22,7 @@ namespace TravelAgencyListImplement
             Clients = new List<Client>();
             Implementers = new List<Implementer>();
             Agencies = new List<Agency>();
+            Messages = new List<MessageInfo>();
         }
 
         public static DataListSingleton GetInstance()
