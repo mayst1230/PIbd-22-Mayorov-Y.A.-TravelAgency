@@ -27,6 +27,15 @@ namespace TravelAgencyClientApp.Controllers
             View(APIClient.GetRequest<List<OrderViewModel>>($"api/main/getorders?clientId={Program.Client.Id}"));
         }
 
+        public IActionResult Mail()
+        {
+            if (Program.Client == null)
+            {
+                return Redirect("~/Home/Enter");
+            }
+            return View(APIClient.GetRequest<List<MessageInfoViewModel>>($"api/client/getmessages?clientId={Program.Client.Id}"));
+        }
+
         [HttpGet]
         public IActionResult Privacy()
         {
@@ -119,8 +128,7 @@ namespace TravelAgencyClientApp.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Travels =
-            APIClient.GetRequest<List<TravelViewModel>>("api/main/gettravellist");
+            ViewBag.Travels = APIClient.GetRequest<List<TravelViewModel>>("api/main/gettravellist");
             return View();
         }
         [HttpPost]
