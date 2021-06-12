@@ -10,8 +10,6 @@ namespace TravelAgencyClientApp.Controllers
 {
     public class HomeController : Controller
     {
-
-
         public HomeController()
         {
 

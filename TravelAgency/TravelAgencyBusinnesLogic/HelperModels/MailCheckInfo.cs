@@ -8,5 +8,5 @@ namespace TravelAgencyBusinnesLogic.HelperModels
         public int PopPort { get; set; }
         public IMessageInfoStorage Storage { get; set; }
         public IClientStorage ClientStorage { get; set; }
-}
+    }
 }
