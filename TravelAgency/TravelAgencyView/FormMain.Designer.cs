@@ -49,6 +49,7 @@ namespace TravelAgencyView
             this.buttonCreateOrder = new System.Windows.Forms.Button();
             this.buttonPayOrder = new System.Windows.Forms.Button();
             this.buttonRef = new System.Windows.Forms.Button();
+            this.mailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripTravelAgency.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrders)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +61,8 @@ namespace TravelAgencyView
             this.directoriesToolStripMenuItem,
             this.AgencyReplenishmentToolStripMenuItem,
             this.отчетыToolStripMenuItem,
-            this.doWorkToolStripMenuItem});
+            this.doWorkToolStripMenuItem,
+            this.mailToolStripMenuItem});
             this.menuStripTravelAgency.Location = new System.Drawing.Point(0, 0);
             this.menuStripTravelAgency.Name = "menuStripTravelAgency";
             this.menuStripTravelAgency.Size = new System.Drawing.Size(1133, 24);
@@ -223,6 +225,13 @@ namespace TravelAgencyView
             this.buttonRef.UseVisualStyleBackColor = true;
             this.buttonRef.Click += new System.EventHandler(this.ButtonRef_Click);
             // 
+            // mailToolStripMenuItem
+            // 
+            this.mailToolStripMenuItem.Name = "mailToolStripMenuItem";
+            this.mailToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.mailToolStripMenuItem.Text = "Письма";
+            this.mailToolStripMenuItem.Click += new System.EventHandler(this.mailToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,5 +276,6 @@ namespace TravelAgencyView
         private System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem implementersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem doWorkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mailToolStripMenuItem;
     }
 }

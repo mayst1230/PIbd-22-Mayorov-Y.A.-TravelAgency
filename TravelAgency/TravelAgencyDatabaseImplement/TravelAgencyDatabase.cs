@@ -21,6 +21,6 @@ namespace TravelAgencyDatabaseImplement
         public virtual DbSet<Implementer> Implementers { set; get; }
         public virtual DbSet<Agency> TravelAgencies { set; get; }
         public virtual DbSet<AgencyCondition> TravelAgencyConditions { set; get; }
-
+        public virtual DbSet<MessageInfo> Messages { set; get; }
     }
 }

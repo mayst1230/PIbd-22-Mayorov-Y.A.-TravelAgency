@@ -39,8 +39,14 @@
     <StartupObject>TravelAgencyView.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.10.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.10\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="DocumentFormat.OpenXml, Version=2.12.3.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
       <HintPath>..\packages\DocumentFormat.OpenXml.2.12.3\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="MailKit, Version=2.11.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailKit.2.11.1\lib\net47\MailKit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -147,6 +153,12 @@
     <Reference Include="MigraDoc.RtfRendering, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
       <HintPath>..\packages\PDFsharp-MigraDoc.1.50.5147\lib\net20\MigraDoc.RtfRendering.dll</HintPath>
     </Reference>
+    <Reference Include="MimeKit, Version=2.11.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeKit.2.11.0\lib\net47\MimeKit.dll</HintPath>
+    </Reference>
+    <Reference Include="NETCore.MailKit, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NETCore.MailKit.2.0.2\lib\netstandard2.0\NETCore.MailKit.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -167,12 +179,17 @@
       <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.5.0.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -183,6 +200,7 @@
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
@@ -190,9 +208,21 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.5.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.5.0.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -202,6 +232,11 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.XmlDocument, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.XmlDocument.4.3.0\lib\net46\System.Xml.XmlDocument.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Unity.Abstractions, Version=5.11.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.11.10\lib\net47\Unity.Abstractions.dll</HintPath>
     </Reference>
@@ -258,6 +293,12 @@
     </Compile>
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMessages.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMessages.Designer.cs">
+      <DependentUpon>FormMessages.cs</DependentUpon>
     </Compile>
     <Compile Include="FormReportOrders.cs">
       <SubType>Form</SubType>
@@ -316,9 +357,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <EmbeddedResource Include="FormAgency.resx">
-      <DependentUpon>FormAgency.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormClients.resx">
       <DependentUpon>FormClients.cs</DependentUpon>
     </EmbeddedResource>
@@ -334,11 +372,20 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMessages.resx">
+      <DependentUpon>FormMessages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportOrders.resx">
+      <DependentUpon>FormReportOrders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormReportOrdersForAllDates.resx">
       <DependentUpon>FormReportOrdersForAllDates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormReportTravelAgencyConditions.resx">
       <DependentUpon>FormReportTravelAgencyConditions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportTravelConditions.resx">
+      <DependentUpon>FormReportTravelConditions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTravel.resx">
       <DependentUpon>FormTravel.cs</DependentUpon>
@@ -366,12 +413,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Report.rdlc" />
-    <EmbeddedResource Include="ReportDates.rdlc" />
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\TravelAgencyBusinnesLogic.ViewModels.AgencyViewModel.datasource" />
     <None Include="Properties\DataSources\TravelAgencyBusinnesLogic.ViewModels.ConditionViewModel.datasource" />
     <None Include="Properties\DataSources\TravelAgencyBusinnesLogic.ViewModels.OrderViewModel.datasource" />
-    <None Include="Properties\DataSources\TravelAgencyBusinnesLogic.ViewModels.ReportOrdersForAllDatesViewModel.datasource" />
     <None Include="Properties\DataSources\TravelAgencyBusinnesLogic.ViewModels.ReportOrdersViewModel.datasource" />
     <None Include="Properties\DataSources\TravelAgencyBusinnesLogic.ViewModels.ReportTravelConditionViewModel.datasource" />
     <None Include="Properties\DataSources\TravelAgencyBusinnesLogic.ViewModels.TravelViewModel.datasource" />
@@ -394,11 +438,11 @@
       <Name>TravelAgencyBusinnesLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\TravelAgencyDatabaseImplement\TravelAgencyDatabaseImplement.csproj">
-      <Project>{fd091bfc-636b-49b3-92e1-f30f59e1ae06}</Project>
+      <Project>{ca01dd5b-e434-4e0b-aca0-a7d08a37f890}</Project>
       <Name>TravelAgencyDatabaseImplement</Name>
     </ProjectReference>
     <ProjectReference Include="..\TravelAgencyFileImplement\TravelAgencyFileImplement.csproj">
-      <Project>{47eb8c1f-4f61-4b48-b860-6c0248614e3b}</Project>
+      <Project>{38a6ae4e-fce9-480d-ae29-ba089061b5bc}</Project>
       <Name>TravelAgencyFileImplement</Name>
     </ProjectReference>
     <ProjectReference Include="..\TravelAgencyListImplement\TravelAgencyListImplement.csproj">
@@ -408,10 +452,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll" />
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll" />
-    <Content Include="SqlServerTypes\x86\msvcr120.dll" />
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />

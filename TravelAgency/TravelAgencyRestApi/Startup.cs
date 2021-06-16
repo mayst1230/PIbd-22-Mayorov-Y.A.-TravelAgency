@@ -1,6 +1,8 @@
 using TravelAgencyBusinnesLogic.BusinessLogics;
 using TravelAgencyBusinnesLogic.Interfaces;
 using TravelAgencyDatabaseImplement.Implements;
+using TravelAgencyBusinnesLogic.HelperModels;
+using System.Threading;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,17 +28,33 @@ namespace TravelAgencyRestApi
             services.AddTransient<ITravelStorage, TravelStorage>();
             services.AddTransient<IAgencyStorage, AgencyStorage>();
             services.AddTransient<IConditionStorage, ConditionStorage>();
+            services.AddTransient<IMessageInfoStorage, MessageInfoStorage>();
             services.AddTransient<OrderLogic>();
             services.AddTransient<ClientLogic>();
             services.AddTransient<TravelLogic>();
             services.AddTransient<AgencyLogic>();
             services.AddTransient<ConditionLogic>();
+            services.AddTransient<MailLogic>();
             services.AddControllers().AddNewtonsoftJson();
+            MailLogic.MailConfig(new MailConfig
+            {
+                SmtpClientHost = "smtp.gmail.com",
+                SmtpClientPort = 587,
+                MailLogin = "rooktestlook@gmail.com",
+                MailPassword = "rjvgm.nth123",
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IMessageInfoStorage messageInfoStorage)
         {
+            var timer = new Timer(new TimerCallback(MailCheck), new MailCheckInfo
+            {
+                PopHost = "pop.gmail.com",
+                PopPort = 995,
+                Storage = messageInfoStorage
+            }, 0, 100000);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -52,6 +70,11 @@ namespace TravelAgencyRestApi
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private static void MailCheck(object obj)
+        {
+            MailLogic.MailCheck((MailCheckInfo)obj);
         }
     }
 }

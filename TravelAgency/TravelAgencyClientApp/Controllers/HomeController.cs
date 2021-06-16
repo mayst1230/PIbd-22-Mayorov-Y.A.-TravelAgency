@@ -10,8 +10,6 @@ namespace TravelAgencyClientApp.Controllers
 {
     public class HomeController : Controller
     {
-
-
         public HomeController()
         {
 
@@ -26,6 +24,17 @@ namespace TravelAgencyClientApp.Controllers
             return
             View(APIClient.GetRequest<List<OrderViewModel>>($"api/main/getorders?clientId={Program.Client.Id}"));
         }
+
+        public IActionResult Mail(int page = 1)
+        {
+            if (Program.Client == null)
+            {
+                return Redirect("~/Home/Enter");
+            }
+            return View(APIClient.GetRequest<PageViewModel>($"api/client/GetPage?pageSize={Program.pageSize}" +
+                $"&page={page}&ClientId={Program.Client.Id}"));
+        }
+    
 
         [HttpGet]
         public IActionResult Privacy()
@@ -119,8 +128,7 @@ namespace TravelAgencyClientApp.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.Travels =
-            APIClient.GetRequest<List<TravelViewModel>>("api/main/gettravellist");
+            ViewBag.Travels = APIClient.GetRequest<List<TravelViewModel>>("api/main/gettravellist");
             return View();
         }
         [HttpPost]
